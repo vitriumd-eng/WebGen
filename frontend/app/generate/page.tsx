@@ -108,6 +108,15 @@ export default function GeneratePage() {
       color: 'accent-secondary'
     },
     {
+      id: 'vector_creative',
+      name: 'Векторный креатив',
+      icon: FaImage,
+      description: 'Масштабируемая векторная графика (SVG) - Recraft.ai',
+      color: 'accent-purple',
+      premium: false,
+      new: true
+    },
+    {
       id: 'video_morph',
       name: 'Видео-морфинг',
       icon: FaVideo,
@@ -122,6 +131,15 @@ export default function GeneratePage() {
       description: 'Генерация на основе URL',
       color: 'accent-primary',
       premium: true
+    },
+    {
+      id: 'branded_set',
+      name: 'Брендовый Сет',
+      icon: FaImage,
+      description: '3 креатива в едином брендовом стиле (Fusion)',
+      color: 'accent-primary',
+      premium: true,
+      new: true
     },
     {
       id: 'ai_scoring',
@@ -177,10 +195,13 @@ export default function GeneratePage() {
                           <Icon className={`text-2xl text-${type.color}`} />
                         </div>
                         <div className="flex-grow">
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center space-x-2 flex-wrap">
                             <h3 className="font-bold">{type.name}</h3>
                             {type.premium && (
                               <span className="badge badge-purple text-xs">Premium</span>
+                            )}
+                            {(type as any).new && (
+                              <span className="badge bg-green-500/20 text-green-400 text-xs">NEW</span>
                             )}
                           </div>
                           <p className="text-text-secondary text-sm mt-1">{type.description}</p>

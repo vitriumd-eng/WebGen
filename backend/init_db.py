@@ -2,7 +2,10 @@
 Initialize database with seed data
 """
 from database import SessionLocal, engine, Base
-from models import User, PricingConfig, CreditPackage, TopCreative, SubscriptionTier, CreativeBundle
+from models import (
+    User, PricingConfig, CreditPackage, TopCreative, SubscriptionTier, CreativeBundle,
+    AiEngine, PricingConfiguration, FusionChain, GenerationType
+)
 from auth import get_password_hash
 from ai_mock import GENERATION_COSTS, PREMIUM_FEATURES
 import json
@@ -183,6 +186,140 @@ def init_db():
         for bundle_data in bundles:
             bundle = CreativeBundle(**bundle_data)
             db.add(bundle)
+        
+        # ==================== ПОСРЕДНИЧЕСКАЯ МОДЕЛЬ: Курс USD/RUB ====================
+        usd_to_rub = PricingConfiguration(
+            key="usd_to_rub_exchange_rate",
+            value=100.0,  # По умолчанию: 100 рублей за доллар
+            description="Курс обмена USD/RUB для расчета себестоимости API"
+        )
+        db.add(usd_to_rub)
+        
+        # ==================== ПОСРЕДНИЧЕСКАЯ МОДЕЛЬ: AI-Движки ====================
+        ai_engines = [
+            {
+                "name": "Recraft.ai",
+                "description": "Премиум AI для векторной графики и масштабируемых логотипов",
+                "role": "Векторная графика, логотипы, иконки (SVG)",
+                "api_endpoint": "https://api.recraft.ai/v1/generate",
+                "api_key_encrypted": "mock_recraft_key_123",
+                "internal_cost_usd_per_unit": 0.30,  # $0.30 за векторную генерацию
+                "markup_percentage": 300.0,  # 300% наценка -> 120₽ финальная цена
+                "is_active": True,
+                "generation_type": GenerationType.VECTOR_CREATIVE
+            },
+            {
+                "name": "DALL-E 3",
+                "description": "OpenAI DALL-E 3 для статичных изображений высокого качества",
+                "role": "Генерация фотореалистичных изображений",
+                "api_endpoint": "https://api.openai.com/v1/images/generations",
+                "api_key_encrypted": "mock_openai_key_456",
+                "internal_cost_usd_per_unit": 0.20,  # $0.20 за изображение
+                "markup_percentage": 400.0,  # 400% наценка -> 100₽ финальная цена
+                "is_active": True,
+                "generation_type": GenerationType.STATIC_IMAGE
+            },
+            {
+                "name": "Stable Diffusion XL",
+                "description": "Open-source модель для генерации изображений",
+                "role": "Генерация изображений (альтернатива DALL-E)",
+                "api_endpoint": "https://api.stability.ai/v1/generation",
+                "api_key_encrypted": "mock_stability_key_789",
+                "internal_cost_usd_per_unit": 0.05,  # $0.05 за изображение
+                "markup_percentage": 1900.0,  # 1900% наценка -> 100₽ финальная цена
+                "is_active": True,
+                "generation_type": GenerationType.STATIC_IMAGE
+            },
+            {
+                "name": "RunwayML Gen-2",
+                "description": "AI для создания анимированных изображений и GIF",
+                "role": "Анимация изображений, GIF, короткие видео",
+                "api_endpoint": "https://api.runwayml.com/v1/generate",
+                "api_key_encrypted": "mock_runway_key_abc",
+                "internal_cost_usd_per_unit": 0.50,  # $0.50 за анимацию
+                "markup_percentage": 400.0,  # 400% наценка -> 250₽ финальная цена
+                "is_active": True,
+                "generation_type": GenerationType.ANIMATED_IMAGE
+            },
+            {
+                "name": "Pika Labs",
+                "description": "AI для видео-морфинга между двумя изображениями",
+                "role": "Видео-морфинг, трансформация изображений",
+                "api_endpoint": "https://api.pika.art/v1/morph",
+                "api_key_encrypted": "mock_pika_key_def",
+                "internal_cost_usd_per_unit": 0.80,  # $0.80 за видео
+                "markup_percentage": 400.0,  # 400% наценка -> 400₽ финальная цена
+                "is_active": True,
+                "generation_type": GenerationType.VIDEO_MORPH
+            },
+            {
+                "name": "GPT-4 Vision",
+                "description": "OpenAI GPT-4 Vision для анализа контекста и генерации промптов",
+                "role": "Анализ URL, извлечение контекста, генерация промптов",
+                "api_endpoint": "https://api.openai.com/v1/chat/completions",
+                "api_key_encrypted": "mock_gpt4v_key_ghi",
+                "internal_cost_usd_per_unit": 0.30,  # $0.30 за анализ + генерация
+                "markup_percentage": 400.0,  # 400% наценка -> 150₽ финальная цена
+                "is_active": True,
+                "generation_type": GenerationType.CONTEXTUAL_PHOTO
+            },
+            {
+                "name": "GPT-4 Creative Scoring",
+                "description": "AI-скоринг креативов на основе конверсионного анализа",
+                "role": "Анализ креативов, оценка конверсии, рекомендации",
+                "api_endpoint": "https://api.openai.com/v1/chat/completions",
+                "api_key_encrypted": "mock_gpt4_scoring_jkl",
+                "internal_cost_usd_per_unit": 0.04,  # $0.04 за скоринг
+                "markup_percentage": 400.0,  # 400% наценка -> 20₽ финальная цена
+                "is_active": True,
+                "generation_type": GenerationType.AI_SCORING
+            }
+        ]
+        
+        for engine_data in ai_engines:
+            engine = AiEngine(**engine_data)
+            db.add(engine)
+        
+        # ==================== ПОСРЕДНИЧЕСКАЯ МОДЕЛЬ: Fusion-Цепочки ====================
+        fusion_chains = [
+            {
+                "name": "Брендовый Сет",
+                "description": "Fusion-цепочка: Recraft.ai + Постобработка Brand Colors. Генерация 3-х креативов в едином брендовом стиле.",
+                "generation_type": GenerationType.BRANDED_SET,
+                "chain_config": json.dumps([
+                    {"engine_name": "Recraft.ai", "order": 1, "role": "Генерация векторной основы"},
+                    {"engine_name": "Brand Color Processor", "order": 2, "role": "Применение цветов бренда"},
+                    {"engine_name": "Style Consistency Check", "order": 3, "role": "Проверка консистентности"}
+                ]),
+                "total_cost_usd": 0.40,  # $0.30 (Recraft) + $0.10 (постобработка)
+                "markup_percentage": 400.0,  # 400% наценка -> 200₽ финальная цена
+                "is_active": True
+            }
+        ]
+        
+        for chain_data in fusion_chains:
+            chain = FusionChain(**chain_data)
+            db.add(chain)
+        
+        # ==================== Обновление PricingConfig для новых типов ====================
+        new_pricing = [
+            {
+                "generation_type": "vector_creative",
+                "cost_credits": 120,
+                "requires_subscription": False,
+                "description": "Векторный креатив (Recraft.ai) - масштабируемая графика"
+            },
+            {
+                "generation_type": "branded_set",
+                "cost_credits": 200,
+                "requires_subscription": True,
+                "description": "Брендовый Сет (Fusion) - 3 креатива в едином стиле"
+            }
+        ]
+        
+        for pricing_data in new_pricing:
+            pricing = PricingConfig(**pricing_data)
+            db.add(pricing)
         
         db.commit()
         print("Database initialized successfully!")

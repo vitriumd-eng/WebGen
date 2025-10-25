@@ -189,3 +189,91 @@ class CreativeBundleResponse(BaseModel):
 class BundlePurchaseRequest(BaseModel):
     bundle_id: int
 
+
+# AI Engine Schemas (для посреднической модели)
+class AiEngineBase(BaseModel):
+    name: str
+    description: Optional[str] = None
+    role: Optional[str] = None
+    api_endpoint: Optional[str] = None
+    internal_cost_usd_per_unit: float
+    markup_percentage: float
+    is_active: bool = True
+    generation_type: Optional[GenerationType] = None
+
+
+class AiEngineCreate(AiEngineBase):
+    api_key_encrypted: Optional[str] = None
+
+
+class AiEngineUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+    role: Optional[str] = None
+    internal_cost_usd_per_unit: Optional[float] = None
+    markup_percentage: Optional[float] = None
+    is_active: Optional[bool] = None
+
+
+class AiEngineResponse(AiEngineBase):
+    id: int
+    created_at: datetime
+    updated_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+
+# Pricing Configuration Schemas
+class PricingConfigurationResponse(BaseModel):
+    id: int
+    key: str
+    value: float
+    description: Optional[str]
+    updated_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+
+class PricingConfigurationUpdate(BaseModel):
+    value: float
+
+
+# Fusion Chain Schemas
+class FusionChainResponse(BaseModel):
+    id: int
+    name: str
+    description: Optional[str]
+    generation_type: GenerationType
+    chain_config: str
+    total_cost_usd: float
+    markup_percentage: float
+    is_active: bool
+    created_at: datetime
+    updated_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+
+class FusionChainCreate(BaseModel):
+    name: str
+    description: Optional[str] = None
+    generation_type: GenerationType
+    chain_config: str  # JSON string
+    total_cost_usd: float
+    markup_percentage: float = 250.0
+
+
+# Margin Calculator Response (для отображения в админке)
+class MarginCalculatorResponse(BaseModel):
+    generation_type: str
+    base_cost_usd: float
+    exchange_rate: float
+    cost_rub: float  # Себестоимость в рублях
+    markup_percentage: float
+    final_price_rub: int  # Финальная цена для клиента
+    profit_rub: float  # Ваша прибыль
+    profit_percentage: float  # Процент прибыли от финальной цены
+

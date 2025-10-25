@@ -4,11 +4,12 @@ from typing import List
 from slowapi import Limiter
 from slowapi.util import get_remote_address
 from database import get_db
-from models import User, Generation, GenerationType
+from models import User, Generation, GenerationType, PricingConfig
 from schemas import GenerationRequest, GenerationResponse
 from auth import get_current_active_user, has_premium_access
 from ai_mock import AIMock, get_generation_cost, is_premium_feature
 from payment_mock import PaymentMock
+from pricing_utils import get_generation_price
 from datetime import datetime
 
 router = APIRouter(prefix="/api/generation", tags=["Generation"])
@@ -26,14 +27,19 @@ def create_generation(
     """Create a new content generation request"""
     
     # Check if feature requires premium subscription
-    if is_premium_feature(gen_request.type.value) and not has_premium_access(current_user):
+    pricing_config = db.query(PricingConfig).filter(
+        PricingConfig.generation_type == gen_request.type.value
+    ).first()
+    
+    if pricing_config and pricing_config.requires_subscription and not has_premium_access(current_user):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="This feature requires an active subscription"
         )
     
-    # Get generation cost
-    cost = get_generation_cost(gen_request.type.value)
+    # Get generation cost using dynamic pricing
+    price_info = get_generation_price(db, gen_request.type)
+    cost = price_info["final_price_rub"]
     
     # Check if user has enough credits
     if current_user.credits_balance < cost:
@@ -87,6 +93,27 @@ def create_generation(
                 params
             )
             generation.ai_score = result.get("score")
+        
+        elif gen_request.type == GenerationType.VECTOR_CREATIVE:
+            # Новый тип: Векторный креатив (Recraft.ai)
+            result = {
+                "url": f"https://mock-storage.example.com/vector/{generation.id}.svg",
+                "format": "SVG",
+                "scalable": True,
+                "message": "Векторный креатив сгенерирован через Recraft.ai"
+            }
+        
+        elif gen_request.type == GenerationType.BRANDED_SET:
+            # Новый тип: Брендовый Сет (Fusion)
+            result = {
+                "url": f"https://mock-storage.example.com/branded-set/{generation.id}/",
+                "creatives": [
+                    f"https://mock-storage.example.com/branded-set/{generation.id}/creative_1.svg",
+                    f"https://mock-storage.example.com/branded-set/{generation.id}/creative_2.svg",
+                    f"https://mock-storage.example.com/branded-set/{generation.id}/creative_3.svg"
+                ],
+                "message": "Брендовый Сет из 3 креативов в едином стиле (Recraft.ai + Brand Colors)"
+            }
         
         else:
             raise HTTPException(
@@ -158,17 +185,25 @@ def get_generation(
 
 
 @router.get("/pricing/list")
-def get_pricing():
-    """Get pricing for all generation types"""
-    from ai_mock import GENERATION_COSTS, PREMIUM_FEATURES
-    
+def get_pricing(db: Session = Depends(get_db)):
+    """Get dynamic pricing for all generation types"""
     pricing = []
-    for gen_type, cost in GENERATION_COSTS.items():
+    
+    for gen_type in GenerationType:
+        price_info = get_generation_price(db, gen_type)
+        
+        # Получаем дополнительную информацию из PricingConfig
+        config = db.query(PricingConfig).filter(
+            PricingConfig.generation_type == gen_type.value
+        ).first()
+        
         pricing.append({
-            "type": gen_type,
-            "cost_credits": cost,
-            "requires_subscription": gen_type in PREMIUM_FEATURES,
-            "description": get_generation_description(gen_type)
+            "type": gen_type.value,
+            "cost_credits": price_info["final_price_rub"],
+            "requires_subscription": config.requires_subscription if config else False,
+            "description": get_generation_description(gen_type.value),
+            "base_cost_usd": price_info["base_cost_usd"],
+            "markup_percentage": price_info["markup_percentage"]
         })
     
     return pricing
@@ -181,7 +216,9 @@ def get_generation_description(gen_type: str) -> str:
         "animated_image": "Анимированное изображение (GIF/MP4)",
         "video_morph": "Видео-морфинг между двумя изображениями",
         "contextual_photo": "Контекстный фото-креатив на основе URL",
-        "ai_scoring": "AI-анализ конверсии креатива"
+        "ai_scoring": "AI-анализ конверсии креатива",
+        "vector_creative": "Векторный креатив (Recraft.ai) - масштабируемая графика (SVG)",
+        "branded_set": "Брендовый Сет (Fusion) - 3 креатива в едином брендовом стиле"
     }
     return descriptions.get(gen_type, "")
 

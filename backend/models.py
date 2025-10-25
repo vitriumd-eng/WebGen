@@ -18,6 +18,8 @@ class GenerationType(str, enum.Enum):
     VIDEO_MORPH = "video_morph"
     CONTEXTUAL_PHOTO = "contextual_photo"
     AI_SCORING = "ai_scoring"
+    VECTOR_CREATIVE = "vector_creative"  # Recraft.ai
+    BRANDED_SET = "branded_set"  # Fusion: Recraft + Brand Colors
 
 
 class TransactionType(str, enum.Enum):
@@ -152,6 +154,59 @@ class CreativeBundle(Base):
     base_price = Column(Integer, nullable=False)  # Price without discount
     discount_percent = Column(Integer, default=15)
     requires_subscription = Column(Boolean, default=True)
+    is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class AiEngine(Base):
+    """
+    Модель для управления AI-агентами (посредническая модель).
+    Хранит себестоимость API и наценку для каждого движка.
+    """
+    __tablename__ = "ai_engines"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False, unique=True)  # e.g., "Recraft.ai", "DALL-E 3", "Stable Diffusion"
+    description = Column(Text)
+    role = Column(String)  # e.g., "Векторная графика", "Генерация изображений"
+    api_endpoint = Column(String)  # Endpoint URL (заглушка)
+    api_key_encrypted = Column(String)  # В продакшене зашифровать
+    internal_cost_usd_per_unit = Column(Float, nullable=False, default=0.0)  # Себестоимость в USD
+    markup_percentage = Column(Float, nullable=False, default=300.0)  # Наценка в процентах (300% = x4)
+    is_active = Column(Boolean, default=True)
+    generation_type = Column(Enum(GenerationType), nullable=True)  # Связь с типом генерации
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class PricingConfiguration(Base):
+    """
+    Глобальные настройки ценообразования (посредническая модель).
+    """
+    __tablename__ = "pricing_configuration"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    key = Column(String, unique=True, nullable=False)  # e.g., "usd_to_rub_exchange_rate"
+    value = Column(Float, nullable=False)
+    description = Column(String)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class FusionChain(Base):
+    """
+    Модель для хранения конфигураций Fusion-цепочек.
+    Пример: Брендовый Сет = Recraft.ai + Постобработка Brand Colors
+    """
+    __tablename__ = "fusion_chains"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False, unique=True)  # e.g., "Брендовый Сет"
+    description = Column(Text)
+    generation_type = Column(Enum(GenerationType), nullable=False)  # BRANDED_SET
+    chain_config = Column(Text, nullable=False)  # JSON: [{"engine_id": 1, "order": 1}, {"engine_id": 2, "order": 2}]
+    total_cost_usd = Column(Float, nullable=False)  # Суммарная себестоимость всех агентов в цепочке
+    markup_percentage = Column(Float, nullable=False, default=250.0)  # Наценка для всей цепочки
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

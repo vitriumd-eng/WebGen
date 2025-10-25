@@ -6,7 +6,7 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from database import engine, Base, get_db
 from sqlalchemy.orm import Session
-from routers import auth, payments, generation, library, admin, oauth, bundles
+from routers import auth, payments, generation, library, admin, oauth, bundles, pricing_admin
 from logging_config import logger
 
 # Database tables are managed by Alembic migrations
@@ -47,6 +47,7 @@ app.include_router(generation.router)
 app.include_router(bundles.router)
 app.include_router(library.router)
 app.include_router(admin.router)
+app.include_router(pricing_admin.router)
 
 
 @app.get("/")
