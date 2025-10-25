@@ -109,11 +109,11 @@ docker-compose up --build
 | Что | URL | Описание |
 |-----|-----|----------|
 | API Docs | http://localhost:8000/docs | Swagger UI |
-| Frontend | http://localhost:3000 | Главная страница |
-| Генерация | http://localhost:3000/generate | Новые типы: Векторный + Брендовый Сет |
-| **Калькулятор Маржинальности** | http://localhost:3000/admin/pricing | ⭐ НОВАЯ страница |
-| Админ-панель | http://localhost:3000/admin | CRM и биллинг |
-| Личный кабинет | http://localhost:3000/profile | История генераций |
+| Frontend | http://localhost:3002 | Главная страница |
+| Генерация | http://localhost:3002/generate | Новые типы: Векторный + Брендовый Сет |
+| **Калькулятор Маржинальности** | http://localhost:3002/admin/pricing | ⭐ НОВАЯ страница |
+| Админ-панель | http://localhost:3002/admin | CRM и биллинг |
+| Личный кабинет | http://localhost:3002/profile | История генераций |
 
 **Тестовые аккаунты:**
 - **Admin**: `username=admin`, `password=admin123`
@@ -127,7 +127,7 @@ docker-compose up --build
 
 #### 1. Изменить курс USD/RUB:
 ```
-1. Перейдите: http://localhost:3000/admin/pricing
+1. Перейдите: http://localhost:3002/admin/pricing
 2. Введите новый курс (например, 95 вместо 100)
 3. Нажмите "Обновить курс"
 4. ✅ Все цены пересчитаются автоматически!
@@ -154,7 +154,7 @@ docker-compose up --build
 
 #### 1. Создать векторный креатив:
 ```
-1. Перейдите: http://localhost:3000/generate
+1. Перейдите: http://localhost:3002/generate
 2. Выберите "Векторный креатив" (120₽)
 3. Введите промпт: "Минималистичный логотип кофейни"
 4. Нажмите "Создать"
