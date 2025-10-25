@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { FaTelegram, FaVk } from 'react-icons/fa';
+import { FaTelegram, FaVk, FaComment } from 'react-icons/fa';
 import { api } from '@/lib/api';
 import { showSuccess, showError } from '@/lib/toast';
 
@@ -69,6 +69,34 @@ export default function OAuthButtons({ onSuccess }: OAuthButtonsProps) {
     }
   };
 
+  const handleMaxLogin = async () => {
+    setLoading('max');
+    
+    // Mock MAX OAuth flow
+    // В продакшене здесь будет реальный MAX OAuth
+    try {
+      const mockMaxData = {
+        max_id: `${Math.floor(Math.random() * 1000000000)}`,
+        first_name: 'MAX',
+        last_name: 'User',
+        phone: '+7900' + Math.floor(Math.random() * 10000000)
+      };
+      
+      const response = await api.post('/api/oauth/max/callback', mockMaxData);
+      const { access_token } = response.data;
+      
+      localStorage.setItem('token', access_token);
+      showSuccess('Добро пожаловать! Вход выполнен через MAX');
+      if (onSuccess) onSuccess();
+      router.push('/generate');
+    } catch (error: any) {
+      console.error('MAX login failed', error);
+      showError(error.response?.data?.detail || 'Ошибка входа через MAX');
+    } finally {
+      setLoading(null);
+    }
+  };
+
   return (
     <div className="space-y-4">
       <button
@@ -87,6 +115,15 @@ export default function OAuthButtons({ onSuccess }: OAuthButtonsProps) {
       >
         <FaVk className="text-3xl" />
         <span className="text-lg">{loading === 'vk' ? 'Подключение...' : 'Войти через VK'}</span>
+      </button>
+
+      <button
+        onClick={handleMaxLogin}
+        disabled={loading !== null}
+        className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-[#FF6B35] to-[#F7931E] hover:from-[#FF5722] hover:to-[#FF8A00] text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 shadow-lg hover:shadow-xl"
+      >
+        <FaComment className="text-3xl" />
+        <span className="text-lg">{loading === 'max' ? 'Подключение...' : 'Войти через MAX'}</span>
       </button>
     </div>
   );
