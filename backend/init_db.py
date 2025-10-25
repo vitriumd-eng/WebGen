@@ -1,0 +1,207 @@
+"""
+Initialize database with seed data
+"""
+from database import SessionLocal, engine, Base
+from models import User, PricingConfig, CreditPackage, TopCreative, SubscriptionTier, CreativeBundle
+from auth import get_password_hash
+from ai_mock import GENERATION_COSTS, PREMIUM_FEATURES
+import json
+
+
+def init_db():
+    """Initialize database with default data"""
+    
+    # Create tables
+    Base.metadata.create_all(bind=engine)
+    
+    db = SessionLocal()
+    
+    try:
+        # Check if data already exists
+        existing_user = db.query(User).first()
+        if existing_user:
+            print("Database already initialized")
+            return
+        
+        # Create admin user
+        admin = User(
+            email="admin@example.com",
+            username="admin",
+            full_name="Admin User",
+            hashed_password=get_password_hash("admin123"),
+            credits_balance=10000,
+            subscription_tier=SubscriptionTier.AGENCY,
+            is_admin=True
+        )
+        db.add(admin)
+        
+        # Create test user
+        test_user = User(
+            email="test@example.com",
+            username="testuser",
+            full_name="Test User",
+            hashed_password=get_password_hash("test123"),
+            credits_balance=50,
+            subscription_tier=SubscriptionTier.FREE
+        )
+        db.add(test_user)
+        
+        # Create pricing configurations
+        for gen_type, cost in GENERATION_COSTS.items():
+            pricing = PricingConfig(
+                generation_type=gen_type,
+                cost_credits=cost,
+                requires_subscription=gen_type in PREMIUM_FEATURES,
+                description=f"Pricing for {gen_type}"
+            )
+            db.add(pricing)
+        
+        # Create credit packages
+        packages = [
+            {
+                "name": "Стартовый пакет",
+                "credits_amount": 500,
+                "price_rub": 500,
+                "bonus_percent": 0,
+                "description": "Базовый пакет для начала работы"
+            },
+            {
+                "name": "Популярный",
+                "credits_amount": 1000,
+                "price_rub": 950,
+                "bonus_percent": 5,
+                "description": "Экономия 5% + бонусные кредиты"
+            },
+            {
+                "name": "Профессиональный",
+                "credits_amount": 3000,
+                "price_rub": 2700,
+                "bonus_percent": 10,
+                "description": "Экономия 10% + бонусные кредиты"
+            },
+            {
+                "name": "Максимальный",
+                "credits_amount": 10000,
+                "price_rub": 8500,
+                "bonus_percent": 15,
+                "description": "Максимальная экономия 15% + бонусные кредиты"
+            }
+        ]
+        
+        for pkg in packages:
+            package = CreditPackage(**pkg)
+            db.add(package)
+        
+        # Create sample top creatives
+        sample_creatives = [
+            {
+                "title": "Летняя распродажа — Яркий креатив",
+                "description": "Эффективный креатив для летней распродажи одежды",
+                "category": "ecommerce",
+                "preview_url": "https://mock-storage.example.com/previews/summer_sale.jpg",
+                "full_url": "https://mock-storage.example.com/full/summer_sale.jpg",
+                "prompt": "Modern summer sale banner, bright colors, fashion items, discount tags, professional photography",
+                "ai_score": 92,
+                "is_approved": True,
+                "views_count": 150,
+                "unlocks_count": 12
+            },
+            {
+                "title": "Финансовые услуги — Доверие",
+                "description": "Креатив для финансовых продуктов с акцентом на надежность",
+                "category": "finance",
+                "preview_url": "https://mock-storage.example.com/previews/finance_trust.jpg",
+                "full_url": "https://mock-storage.example.com/full/finance_trust.jpg",
+                "prompt": "Financial services ad, trust and security theme, professional look, blue tones, minimal design",
+                "ai_score": 89,
+                "is_approved": True,
+                "views_count": 98,
+                "unlocks_count": 8
+            },
+            {
+                "title": "Стриминг — Новый сезон",
+                "description": "Анонс нового сезона сериала для стриминговой платформы",
+                "category": "entertainment",
+                "preview_url": "https://mock-storage.example.com/previews/streaming_season.jpg",
+                "full_url": "https://mock-storage.example.com/full/streaming_season.jpg",
+                "prompt": "TV series announcement, dramatic lighting, cinematic style, streaming platform branding",
+                "ai_score": 95,
+                "is_approved": True,
+                "views_count": 210,
+                "unlocks_count": 25
+            }
+        ]
+        
+        for creative_data in sample_creatives:
+            creative = TopCreative(**creative_data)
+            db.add(creative)
+        
+        # Create creative bundles (комплекты со скидкой 15%)
+        bundles = [
+            {
+                "name": "Старт Кампании",
+                "description": "Идеальный набор для запуска новой рекламной кампании",
+                "generations_config": json.dumps([
+                    {"type": "static_image", "quantity": 3},
+                    {"type": "animated_image", "quantity": 1}
+                ]),
+                "base_price": 550,  # 3*100 + 1*250 = 550
+                "discount_percent": 15,  # Финальная цена: 467
+                "requires_subscription": True,
+                "is_active": True
+            },
+            {
+                "name": "Максимум Теста",
+                "description": "Комплект для масштабного A/B тестирования креативов",
+                "generations_config": json.dumps([
+                    {"type": "static_image", "quantity": 5},
+                    {"type": "animated_image", "quantity": 2},
+                    {"type": "ai_scoring", "quantity": 3}
+                ]),
+                "base_price": 1060,  # 5*100 + 2*250 + 3*20 = 1060
+                "discount_percent": 15,  # Финальная цена: 901
+                "requires_subscription": True,
+                "is_active": True
+            },
+            {
+                "name": "Премиум Пакет",
+                "description": "Полный набор для профессионалов с видео-контентом",
+                "generations_config": json.dumps([
+                    {"type": "static_image", "quantity": 3},
+                    {"type": "animated_image", "quantity": 2},
+                    {"type": "video_morph", "quantity": 1},
+                    {"type": "contextual_photo", "quantity": 1},
+                    {"type": "ai_scoring", "quantity": 2}
+                ]),
+                "base_price": 1390,  # 3*100 + 2*250 + 400 + 150 + 2*20 = 1390
+                "discount_percent": 15,  # Финальная цена: 1181
+                "requires_subscription": True,
+                "is_active": True
+            }
+        ]
+        
+        for bundle_data in bundles:
+            bundle = CreativeBundle(**bundle_data)
+            db.add(bundle)
+        
+        db.commit()
+        print("Database initialized successfully!")
+        print("\n=== Test credentials ===")
+        print("Admin: username=admin, password=admin123")
+        print("User: username=testuser, password=test123")
+        print("\n=== Created bundles ===")
+        for b in bundles:
+            final_price = int(b['base_price'] * (1 - b['discount_percent'] / 100))
+            saving = b['base_price'] - final_price
+            print(f"- {b['name']}: {final_price}₽ (экономия {saving}₽)")
+        
+    except Exception as e:
+        print(f"Error initializing database: {e}")
+        db.rollback()
+    finally:
+        db.close()
+
+
+if __name__ == "__main__":
+    init_db()
+

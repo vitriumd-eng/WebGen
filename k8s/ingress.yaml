@@ -1,0 +1,62 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ai-creatives-ingress
+  namespace: ai-creatives
+  annotations:
+    # Yandex Cloud Application Load Balancer
+    ingress.alb.yc.io/subnets: "SUBNET_ID_1,SUBNET_ID_2,SUBNET_ID_3"  # Замените на ваши subnet ID
+    ingress.alb.yc.io/security-groups: "SECURITY_GROUP_ID"  # Замените на ваш security group
+    ingress.alb.yc.io/external-ipv4-address: "auto"  # Автоматическое назначение IP
+    
+    # SSL/TLS
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    ingress.alb.yc.io/protocol: "http"  # Измените на https после настройки сертификатов
+    
+    # Rate limiting
+    nginx.ingress.kubernetes.io/limit-rps: "100"
+    
+    # CORS
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://yourdomain.com"
+spec:
+  ingressClassName: yc-alb  # Yandex Cloud ALB Ingress Controller
+  rules:
+  - host: yourdomain.com  # Замените на ваш домен
+    http:
+      paths:
+      # Backend API
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 8000
+      - path: /docs
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 8000
+      - path: /health
+        pathType: Exact
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 8000
+      # Frontend
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-service
+            port:
+              number: 3000
+  tls:
+  - hosts:
+    - yourdomain.com
+    secretName: ai-creatives-tls
+
