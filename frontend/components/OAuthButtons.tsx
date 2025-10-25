@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { FaTelegram, FaVk, FaGoogle, FaYandex } from 'react-icons/fa';
+import { FaTelegram, FaVk } from 'react-icons/fa';
 import { api } from '@/lib/api';
+import { showSuccess, showError } from '@/lib/toast';
 
 interface OAuthButtonsProps {
   onSuccess?: () => void;
@@ -30,11 +31,12 @@ export default function OAuthButtons({ onSuccess }: OAuthButtonsProps) {
       const { access_token } = response.data;
       
       localStorage.setItem('token', access_token);
+      showSuccess('Добро пожаловать! Вход выполнен через Telegram');
       if (onSuccess) onSuccess();
       router.push('/generate');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Telegram login failed', error);
-      alert('Ошибка входа через Telegram');
+      showError(error.response?.data?.detail || 'Ошибка входа через Telegram');
     } finally {
       setLoading(null);
     }
@@ -56,103 +58,35 @@ export default function OAuthButtons({ onSuccess }: OAuthButtonsProps) {
       const { access_token } = response.data;
       
       localStorage.setItem('token', access_token);
+      showSuccess('Добро пожаловать! Вход выполнен через VK');
       if (onSuccess) onSuccess();
       router.push('/generate');
-    } catch (error) {
+    } catch (error: any) {
       console.error('VK login failed', error);
-      alert('Ошибка входа через VK');
-    } finally {
-      setLoading(null);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    setLoading('google');
-    
-    // Mock Google OAuth flow
-    try {
-      const mockGoogleData = {
-        google_id: `${Math.floor(Math.random() * 1000000000)}`,
-        email: `user${Date.now()}@gmail.com`,
-        name: 'Google User',
-        picture: ''
-      };
-      
-      const response = await api.post('/api/oauth/google/callback', mockGoogleData);
-      const { access_token } = response.data;
-      
-      localStorage.setItem('token', access_token);
-      if (onSuccess) onSuccess();
-      router.push('/generate');
-    } catch (error) {
-      console.error('Google login failed', error);
-      alert('Ошибка входа через Google');
-    } finally {
-      setLoading(null);
-    }
-  };
-
-  const handleYandexLogin = async () => {
-    setLoading('yandex');
-    
-    // Mock Yandex OAuth flow
-    try {
-      const mockYandexData = {
-        yandex_id: `${Math.floor(Math.random() * 1000000000)}`,
-        email: `user${Date.now()}@yandex.ru`,
-        display_name: 'Яндекс Пользователь'
-      };
-      
-      const response = await api.post('/api/oauth/yandex/callback', mockYandexData);
-      const { access_token } = response.data;
-      
-      localStorage.setItem('token', access_token);
-      if (onSuccess) onSuccess();
-      router.push('/generate');
-    } catch (error) {
-      console.error('Yandex login failed', error);
-      alert('Ошибка входа через Яндекс');
+      showError(error.response?.data?.detail || 'Ошибка входа через VK');
     } finally {
       setLoading(null);
     }
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       <button
         onClick={handleTelegramLogin}
         disabled={loading !== null}
-        className="w-full flex items-center justify-center space-x-3 bg-[#0088cc] hover:bg-[#0077b3] text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
+        className="w-full flex items-center justify-center space-x-3 bg-[#0088cc] hover:bg-[#0077b3] text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 shadow-lg hover:shadow-xl"
       >
-        <FaTelegram className="text-2xl" />
-        <span>{loading === 'telegram' ? 'Вход...' : 'Войти через Telegram'}</span>
+        <FaTelegram className="text-3xl" />
+        <span className="text-lg">{loading === 'telegram' ? 'Подключение...' : 'Войти через Telegram'}</span>
       </button>
 
       <button
         onClick={handleVKLogin}
         disabled={loading !== null}
-        className="w-full flex items-center justify-center space-x-3 bg-[#0077FF] hover:bg-[#0066DD] text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
+        className="w-full flex items-center justify-center space-x-3 bg-[#0077FF] hover:bg-[#0066DD] text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 shadow-lg hover:shadow-xl"
       >
-        <FaVk className="text-2xl" />
-        <span>{loading === 'vk' ? 'Вход...' : 'Войти через VK'}</span>
-      </button>
-
-      <button
-        onClick={handleGoogleLogin}
-        disabled={loading !== null}
-        className="w-full flex items-center justify-center space-x-3 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
-      >
-        <FaGoogle className="text-2xl text-[#DB4437]" />
-        <span>{loading === 'google' ? 'Вход...' : 'Войти через Google'}</span>
-      </button>
-
-      <button
-        onClick={handleYandexLogin}
-        disabled={loading !== null}
-        className="w-full flex items-center justify-center space-x-3 bg-[#FC3F1D] hover:bg-[#E63600] text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
-      >
-        <FaYandex className="text-2xl" />
-        <span>{loading === 'yandex' ? 'Вход...' : 'Войти через Яндекс'}</span>
+        <FaVk className="text-3xl" />
+        <span className="text-lg">{loading === 'vk' ? 'Подключение...' : 'Войти через VK'}</span>
       </button>
     </div>
   );

@@ -1,180 +1,146 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useAuth } from '@/context/AuthContext';
-import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
 import OAuthButtons from '@/components/OAuthButtons';
-import { showSuccess, showError } from '@/lib/toast';
+import { FaGift, FaStar, FaUsers, FaRocket } from 'react-icons/fa';
 
 export default function RegisterPage() {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [fullName, setFullName] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const { register } = useAuth();
-  const router = useRouter();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-
-    if (password !== confirmPassword) {
-      const errorMessage = 'Пароли не совпадают';
-      setError(errorMessage);
-      showError(errorMessage);
-      return;
-    }
-
-    if (password.length < 8) {
-      const errorMessage = 'Пароль должен быть не менее 8 символов';
-      setError(errorMessage);
-      showError(errorMessage);
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      await register(email, username, password, fullName);
-      showSuccess('Регистрация успешна! Добро пожаловать!');
-      router.push('/generate');
-    } catch (err: any) {
-      const errorMessage = err.response?.data?.detail || 'Ошибка регистрации. Попробуйте другие данные.';
-      setError(errorMessage);
-      showError(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
-      <div className="max-w-md w-full">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2">Регистрация</h1>
-          <p className="text-text-secondary">Создайте аккаунт и получите 50 бесплатных кредитов</p>
+      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        {/* Left side - Benefits */}
+        <div className="hidden lg:block space-y-8">
+          <div>
+            <h1 className="text-5xl font-bold mb-4">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Начните бесплатно
+              </span>
+            </h1>
+            <p className="text-2xl text-text-secondary mb-6">
+              Присоединяйтесь к тысячам довольных пользователей
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                <FaGift className="text-2xl text-dark-bg" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">50 кредитов в подарок</h3>
+                <p className="text-text-secondary">
+                  Получите бесплатные кредиты сразу после регистрации
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-gradient-purple rounded-lg flex items-center justify-center flex-shrink-0">
+                <FaStar className="text-2xl text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">5+ типов генерации</h3>
+                <p className="text-text-secondary">
+                  Статичные изображения, GIF, видео-морфинг, AI-скоринг и многое другое
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                <FaUsers className="text-2xl text-dark-bg" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Библиотека Top-50</h3>
+                <p className="text-text-secondary">
+                  Доступ к лучшим креативам и промптам от профессионалов
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-gradient-purple rounded-lg flex items-center justify-center flex-shrink-0">
+                <FaRocket className="text-2xl text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Гибкие тарифы</h3>
+                <p className="text-text-secondary">
+                  От бесплатного до корпоративного - выберите свой план
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-6 bg-gradient-accent rounded-xl">
+            <div className="flex items-center justify-between text-dark-bg">
+              <div>
+                <p className="text-sm font-medium opacity-90">Специальное предложение</p>
+                <p className="text-2xl font-bold">-15% на первую подписку</p>
+              </div>
+              <div className="text-5xl">🎉</div>
+            </div>
+          </div>
         </div>
 
-        <div className="card-elevated">
-          {/* OAuth Registration Buttons */}
-          <div className="mb-6">
-            <p className="text-text-secondary text-sm text-center mb-4">
-              Зарегистрироваться через социальные сети
-            </p>
-            <OAuthButtons />
+        {/* Right side - Register */}
+        <div className="max-w-md w-full mx-auto">
+          <div className="text-center mb-8 lg:hidden">
+            <h1 className="text-4xl font-bold mb-2">Регистрация</h1>
+            <p className="text-text-secondary">Создайте аккаунт за 5 секунд</p>
           </div>
 
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-dark-border"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-dark-elevated text-text-secondary">или создать аккаунт</span>
-            </div>
+          <div className="text-center mb-8 hidden lg:block">
+            <h2 className="text-3xl font-bold mb-2">Создать аккаунт</h2>
+            <p className="text-text-secondary">Выберите способ регистрации</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {error && (
-              <div className="bg-accent-danger/20 border border-accent-danger rounded-lg p-4 text-sm">
-                {error}
-              </div>
-            )}
+          <div className="card-elevated">
+            <div className="mb-6">
+              <OAuthButtons />
+            </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">Email</label>
-              <div className="relative">
-                <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted" />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="input w-full pl-10"
-                  placeholder="your@email.com"
-                  required
-                />
+            <div className="space-y-4 mt-8">
+              <div className="p-4 bg-gradient-accent/10 rounded-lg border border-accent-primary/30">
+                <div className="flex items-center space-x-3 mb-2">
+                  <FaGift className="text-accent-primary text-xl" />
+                  <h4 className="font-bold">Приветственный бонус</h4>
+                </div>
+                <p className="text-sm text-text-secondary pl-8">
+                  <span className="text-accent-primary font-bold">50 кредитов</span> для тестирования всех возможностей платформы
+                </p>
+              </div>
+
+              <div className="p-4 bg-dark-surface rounded-lg border border-dark-border">
+                <h4 className="font-semibold mb-2 text-sm">Что входит в бесплатный план:</h4>
+                <ul className="text-xs text-text-secondary space-y-1 pl-4">
+                  <li>✓ Базовая генерация изображений</li>
+                  <li>✓ Доступ к библиотеке Top-50</li>
+                  <li>✓ AI-скоринг креативов</li>
+                  <li>✓ Покупка кредитов по мере необходимости</li>
+                </ul>
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">Имя пользователя</label>
-              <div className="relative">
-                <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted" />
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="input w-full pl-10"
-                  placeholder="username"
-                  required
-                />
-              </div>
+            <div className="mt-6 text-center">
+              <p className="text-text-secondary text-sm">
+                Уже есть аккаунт?{' '}
+                <Link href="/login" className="text-accent-primary hover:underline font-semibold">
+                  Войти
+                </Link>
+              </p>
             </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">Полное имя (опционально)</label>
-              <div className="relative">
-                <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted" />
-                <input
-                  type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="input w-full pl-10"
-                  placeholder="Иван Иванов"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">Пароль</label>
-              <div className="relative">
-                <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted" />
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="input w-full pl-10"
-                  placeholder="••••••••"
-                  required
-                  minLength={6}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">Подтвердите пароль</label>
-              <div className="relative">
-                <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted" />
-                <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="input w-full pl-10"
-                  placeholder="••••••••"
-                  required
-                  minLength={6}
-                />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="btn btn-primary w-full disabled:opacity-50"
-            >
-              {loading ? 'Регистрация...' : 'Зарегистрироваться'}
-            </button>
-          </form>
+          </div>
 
           <div className="mt-6 text-center">
-            <p className="text-text-secondary text-sm">
-              Уже есть аккаунт?{' '}
-              <Link href="/login" className="text-accent-primary hover:underline">
-                Войти
+            <p className="text-text-muted text-xs">
+              Регистрируясь, вы соглашаетесь с{' '}
+              <Link href="/terms" className="hover:text-accent-primary">
+                условиями использования
+              </Link>
+              {' '}и{' '}
+              <Link href="/privacy" className="hover:text-accent-primary">
+                политикой конфиденциальности
               </Link>
             </p>
           </div>
@@ -183,4 +149,3 @@ export default function RegisterPage() {
     </div>
   );
 }
-
