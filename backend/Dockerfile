@@ -25,22 +25,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Создаем непривилегированного пользователя ДО копирования пакетов
+RUN useradd -m -u 1000 appuser && \
+    mkdir -p /home/appuser/.local && \
+    chown -R appuser:appuser /home/appuser
+
 # Копируем установленные пакеты из builder
-COPY --from=builder /root/.local /root/.local
+COPY --from=builder /root/.local /home/appuser/.local
 
 # Копируем код приложения
-COPY . .
+COPY --chown=appuser:appuser . .
 
-# Создаем непривилегированного пользователя
-RUN useradd -m -u 1000 appuser && \
-    chown -R appuser:appuser /app && \
-    mkdir -p /app/logs && \
+# Создаем директорию для логов
+RUN mkdir -p /app/logs && \
     chown -R appuser:appuser /app/logs
 
 USER appuser
 
 # Добавляем ~/.local/bin в PATH
-ENV PATH=/root/.local/bin:$PATH
+ENV PATH=/home/appuser/.local/bin:$PATH
 ENV PYTHONPATH=/app
 
 # Healthcheck
