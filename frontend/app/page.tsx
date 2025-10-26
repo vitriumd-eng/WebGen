@@ -271,11 +271,11 @@ export default function HomePage() {
               </div>
               
               <h2 className="text-4xl font-bold mb-6">
-                <span className="bg-gradient-accent bg-clip-text text-transparent">AI-Скоринг CVR/ROAS</span>: Как за 20₽ узнать, сработает ли креатив
+                <span className="bg-gradient-accent bg-clip-text text-transparent">AI-Скоринг CVR/ROAS</span>: Как за 100₽ узнать, сработает ли креатив
               </h2>
               
               <p className="text-xl text-text-secondary mb-8">
-                Зачем тратить 10 000₽ на тестирование, если можно получить прогноз конверсии за 20₽?
+                Зачем тратить 10 000₽ на тестирование, если можно получить прогноз конверсии за 100₽?
               </p>
 
               <div className="space-y-4">
@@ -317,13 +317,9 @@ export default function HomePage() {
               </div>
 
               <div className="mt-8 p-6 bg-dark-bg rounded-xl border border-accent-primary/30">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-text-secondary">Стоимость AI-скоринга:</span>
-                  <span className="text-2xl font-bold text-accent-primary">20₽</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-text-secondary">Экономия на тестах:</span>
-                  <span className="text-2xl font-bold text-green-400">10 000₽</span>
+                <div className="flex items-center justify-center">
+                  <span className="text-text-secondary mr-4">Стоимость AI-скоринга:</span>
+                  <span className="text-3xl font-bold text-accent-primary">100₽</span>
                 </div>
               </div>
             </div>
