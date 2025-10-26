@@ -19,123 +19,56 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* HERO SECTION - Блок 1: Ключевой анонс + Флагманский пакет */}
-      <section className="relative overflow-hidden py-16 px-4">
+      {/* HERO SECTION - Блок 1: Ключевой анонс */}
+      <section className="relative overflow-hidden py-20 px-4 mt-16">
         {/* Animated background */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 via-transparent to-accent-secondary/10"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
-        <div className="max-w-5xl mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Main Announcement */}
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-accent-primary/20 text-accent-primary px-4 py-2 rounded-full mb-6 animate-pulse-slow">
-                <FaBolt className="text-xl" />
-                <span className="font-semibold">AI-анализ конкурентов по ссылке</span>
-              </div>
-              
-              <h1 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-                <span className="bg-gradient-accent bg-clip-text text-transparent">Fortar</span> — платформа, которая анализирует группу конкурента и выдает креатив максимально релевантный аудитории
-              </h1>
-              
-              <p className="text-base text-text-secondary mb-6">
-                Мгновенное создание нативной рекламы. Вставляешь ссылку — получаешь готовый, адаптированный комплект креативов.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={handleGetStarted}
-                  className="btn-primary btn-lg flex items-center justify-center space-x-2 group"
-                >
-                  <span>Начать бесплатно (50 кредитов)</span>
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <Link href="/pricing" className="btn-secondary btn-lg flex items-center justify-center">
-                  Посмотреть тарифы
-                </Link>
-              </div>
-              
-              <div className="mt-8 flex items-center space-x-6 text-sm text-text-muted">
-                <div className="flex items-center space-x-2">
-                  <FaCheckCircle className="text-green-400" />
-                  <span>Без кредитной карты</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <FaCheckCircle className="text-green-400" />
-                  <span>7 AI-движков</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <FaCheckCircle className="text-green-400" />
-                  <span>Топ-50 креативов</span>
-                </div>
-              </div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-accent-primary/20 text-accent-primary px-6 py-3 rounded-full mb-8 animate-pulse-slow">
+              <FaBolt className="text-xl" />
+              <span className="font-semibold text-lg">AI-анализ конкурентов по ссылке</span>
             </div>
-
-            {/* Right: Flagship Package Card */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-accent rounded-3xl opacity-20 blur-xl animate-pulse-slow"></div>
-              <div className="relative card-elevated border-2 border-accent-primary p-8">
-                <div className="absolute -top-4 -right-4 bg-accent-primary text-dark-bg px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce-slow">
-                  🔥 ФЛАГМАН
-                </div>
-                
-                <div className="mb-6">
-                  <h3 className="text-3xl font-bold mb-2">Максимум Тестирования</h3>
-                  <p className="text-text-secondary">Комплексный AI-Запуск за один клик</p>
-                </div>
-
-                <div className="mb-6 flex items-center justify-center py-6">
-                  <div className="text-center">
-                    <div className="flex items-center justify-center space-x-3 mb-2">
-                      <FaImage className="text-3xl text-accent-primary" />
-                      <FaArrowRight className="text-2xl text-accent-secondary" />
-                      <FaRocket className="text-3xl text-accent-secondary animate-pulse" />
-                    </div>
-                    <p className="text-sm text-text-muted">Вставить ссылку → Полный комплект креативов</p>
-                  </div>
-                </div>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-start space-x-3">
-                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0" />
-                    <span className="text-sm">5 статичных изображений высокого качества</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0" />
-                    <span className="text-sm">2 анимированных креатива (GIF/MP4)</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0" />
-                    <span className="text-sm">3 AI-скоринга креативов (прогноз CVR)</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0" />
-                    <span className="text-sm">Анализ целевой аудитории по ссылке</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0" />
-                    <span className="text-sm">Адаптация под брендбук компании</span>
-                  </div>
-                </div>
-
-                <div className="border-t border-dark-border pt-6 mb-6">
-                  <div className="flex items-baseline justify-center space-x-2">
-                    <span className="text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent">4 990</span>
-                    <span className="text-2xl text-text-secondary">₽</span>
-                  </div>
-                  <p className="text-center text-sm text-text-muted mt-2">Вместо ~20 000₽ у дизайнера</p>
-                </div>
-
-                <button
-                  onClick={() => router.push('/pricing')}
-                  className="btn-primary w-full btn-lg"
-                >
-                  Заказать пакет
-                </button>
-
-                <p className="text-center text-xs text-text-muted mt-4">
-                  Готовность: 15 минут. Гарантия качества.
-                </p>
+            
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">Fortar</span> — платформа, которая анализирует группу конкурента и выдает креатив максимально релевантный аудитории
+            </h1>
+            
+            <p className="text-xl text-text-secondary mb-10 max-w-3xl mx-auto">
+              Мгновенное создание нативной рекламы. Вставляешь ссылку — получаешь готовый, адаптированный комплект креативов.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+              <button
+                onClick={handleGetStarted}
+                className="btn-primary btn-lg flex items-center justify-center space-x-2 group text-lg px-8 py-4"
+              >
+                <span>Начать бесплатно (50 кредитов)</span>
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              <Link href="/generate" className="btn-secondary btn-lg flex items-center justify-center text-lg px-8 py-4">
+                <FaRocket className="mr-2" />
+                Генерация
+              </Link>
+              <Link href="/pricing" className="btn-secondary btn-lg flex items-center justify-center text-lg px-8 py-4">
+                Посмотреть тарифы
+              </Link>
+            </div>
+            
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted">
+              <div className="flex items-center space-x-2">
+                <FaCheckCircle className="text-green-400" />
+                <span>Без кредитной карты</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <FaCheckCircle className="text-green-400" />
+                <span>7 AI-движков</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <FaCheckCircle className="text-green-400" />
+                <span>Топ-50 креативов</span>
               </div>
             </div>
           </div>
@@ -188,8 +121,84 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Флагманский пакет: Максимум Тестирования */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="relative">
+            <div className="absolute -inset-6 bg-gradient-accent rounded-3xl opacity-20 blur-2xl animate-pulse-slow"></div>
+            <div className="relative card-elevated border-2 border-accent-primary p-10">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-accent-primary text-dark-bg px-6 py-3 rounded-full font-bold text-lg shadow-lg animate-bounce-slow">
+                🔥 ФЛАГМАН
+              </div>
+              
+              <div className="text-center mb-8 mt-4">
+                <h2 className="text-4xl font-bold mb-3">Максимум Тестирования</h2>
+                <p className="text-xl text-text-secondary">Комплексный AI-Запуск за один клик</p>
+              </div>
+
+              <div className="mb-8 flex items-center justify-center py-6">
+                <div className="text-center">
+                  <div className="flex items-center justify-center space-x-4 mb-3">
+                    <FaImage className="text-4xl text-accent-primary" />
+                    <FaArrowRight className="text-3xl text-accent-secondary" />
+                    <FaRocket className="text-4xl text-accent-secondary animate-pulse" />
+                  </div>
+                  <p className="text-base text-text-muted">Вставить ссылку → Полный комплект креативов</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="flex items-start space-x-3">
+                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
+                  <span className="text-base">5 статичных изображений высокого качества</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
+                  <span className="text-base">2 анимированных креатива (GIF/MP4)</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
+                  <span className="text-base">3 AI-скоринга креативов (прогноз CVR)</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
+                  <span className="text-base">Анализ целевой аудитории по ссылке</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
+                  <span className="text-base">Адаптация под брендбук компании</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
+                  <span className="text-base">Готовность: 15 минут</span>
+                </div>
+              </div>
+
+              <div className="border-t border-dark-border pt-8 mb-8">
+                <div className="flex items-baseline justify-center space-x-3 mb-2">
+                  <span className="text-6xl font-bold bg-gradient-accent bg-clip-text text-transparent">4 990</span>
+                  <span className="text-3xl text-text-secondary">₽</span>
+                </div>
+                <p className="text-center text-lg text-text-muted">Вместо ~20 000₽ у дизайнера</p>
+              </div>
+
+              <button
+                onClick={() => router.push('/pricing')}
+                className="btn-primary w-full btn-lg text-xl py-5"
+              >
+                Заказать пакет
+              </button>
+
+              <p className="text-center text-sm text-text-muted mt-6">
+                Готовность: 15 минут. Гарантия качества.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Блок 3: Как это работает (визуализация процесса) */}
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 bg-dark-surface">
         <div className="max-w-5xl mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
