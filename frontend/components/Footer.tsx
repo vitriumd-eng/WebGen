@@ -5,16 +5,16 @@ import { FaTelegram, FaEnvelope, FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-surface border-t border-dark-border mt-20">
+    <footer className="bg-light-surface border-t border-light-border mt-20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-accent rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold">F</span>
+              <div className="w-8 h-8 bg-gradient-accent rounded-lg flex items-center justify-center shadow-soft">
+                <span className="text-xl font-bold text-white">F</span>
               </div>
-              <span className="text-lg font-bold">Fortar</span>
+              <span className="text-lg font-bold text-text-primary">Fortar</span>
             </div>
             <p className="text-text-secondary text-sm">
               AI-платформа для анализа конкурентов и генерации нативных креативов
@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* Product */}
           <div>
-            <h3 className="font-semibold mb-4">Продукт</h3>
+            <h3 className="font-semibold mb-4 text-text-primary">Продукт</h3>
             <ul className="space-y-2 text-text-secondary text-sm">
               <li><Link href="/generate" className="hover:text-accent-primary transition-colors">Генерация</Link></li>
               <li><Link href="/library" className="hover:text-accent-primary transition-colors">Библиотека</Link></li>
@@ -34,7 +34,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold mb-4">Компания</h3>
+            <h3 className="font-semibold mb-4 text-text-primary">Компания</h3>
             <ul className="space-y-2 text-text-secondary text-sm">
               <li><Link href="/about" className="hover:text-accent-primary transition-colors">О нас</Link></li>
               <li><Link href="/contact" className="hover:text-accent-primary transition-colors">Контакты</Link></li>
@@ -45,15 +45,15 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4">Связаться</h3>
+            <h3 className="font-semibold mb-4 text-text-primary">Связаться</h3>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-dark-elevated rounded-lg flex items-center justify-center hover:bg-accent-primary transition-colors">
+              <a href="#" className="w-10 h-10 bg-light-bg border border-light-border rounded-lg flex items-center justify-center hover:bg-accent-primary hover:text-white hover:border-accent-primary transition-all shadow-soft">
                 <FaTelegram className="text-xl" />
               </a>
-              <a href="mailto:support@example.com" className="w-10 h-10 bg-dark-elevated rounded-lg flex items-center justify-center hover:bg-accent-primary transition-colors">
+              <a href="mailto:support@example.com" className="w-10 h-10 bg-light-bg border border-light-border rounded-lg flex items-center justify-center hover:bg-accent-primary hover:text-white hover:border-accent-primary transition-all shadow-soft">
                 <FaEnvelope className="text-xl" />
               </a>
-              <a href="#" className="w-10 h-10 bg-dark-elevated rounded-lg flex items-center justify-center hover:bg-accent-primary transition-colors">
+              <a href="#" className="w-10 h-10 bg-light-bg border border-light-border rounded-lg flex items-center justify-center hover:bg-accent-primary hover:text-white hover:border-accent-primary transition-all shadow-soft">
                 <FaGithub className="text-xl" />
               </a>
             </div>
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-dark-border mt-8 pt-8 text-center text-text-secondary text-sm">
+        <div className="border-t border-light-border mt-8 pt-8 text-center text-text-secondary text-sm">
           <p>© 2025 Fortar. Все права защищены.</p>
         </div>
       </div>

@@ -20,13 +20,13 @@ export default function Header() {
   const tierInfo = user ? getTierBadge(user.subscription_tier) : null;
 
   return (
-    <header className="bg-dark-surface border-b border-dark-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+    <header className="bg-light-bg border-b border-light-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-95 shadow-soft">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold">F</span>
+            <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center shadow-soft">
+              <span className="text-2xl font-bold text-white">F</span>
             </div>
             <span className="text-xl font-bold bg-gradient-accent bg-clip-text text-transparent">
               Fortar
@@ -35,17 +35,17 @@ export default function Header() {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/generate" className="hover:text-accent-primary transition-colors">
+            <Link href="/generate" className="text-text-secondary hover:text-accent-primary transition-colors font-medium">
               Генерация
             </Link>
-            <Link href="/library" className="hover:text-accent-primary transition-colors">
+            <Link href="/library" className="text-text-secondary hover:text-accent-primary transition-colors font-medium">
               Библиотека
             </Link>
-            <Link href="/pricing" className="hover:text-accent-primary transition-colors">
+            <Link href="/pricing" className="text-text-secondary hover:text-accent-primary transition-colors font-medium">
               Тарифы
             </Link>
             {user?.is_admin && (
-              <Link href="/admin" className="hover:text-accent-purple transition-colors">
+              <Link href="/admin" className="text-text-secondary hover:text-accent-purple transition-colors font-medium">
                 Админ
               </Link>
             )}
@@ -56,16 +56,16 @@ export default function Header() {
             {user ? (
               <>
                 {/* Credits Balance */}
-                <div className="card-elevated px-4 py-2 flex items-center space-x-2 animate-glow">
+                <div className="bg-light-surface border border-light-border rounded-lg px-4 py-2 flex items-center space-x-2 shadow-soft">
                   <FaCoins className="text-accent-secondary" />
-                  <span className="font-bold text-lg">{user.credits_balance}</span>
-                  <span className="text-text-secondary text-sm">кредитов</span>
+                  <span className="font-bold text-lg text-text-primary">{user.credits_balance}</span>
+                  <span className="text-text-muted text-sm">кредитов</span>
                 </div>
 
                 {/* Subscription Tier */}
-                <div className={`badge badge-purple flex items-center space-x-1`}>
+                <div className={`badge badge-primary flex items-center space-x-1`}>
                   <span>{tierInfo?.icon}</span>
-                  <span className={tierInfo?.color}>{tierInfo?.name}</span>
+                  <span className="font-semibold">{tierInfo?.name}</span>
                 </div>
 
                 {/* User Menu */}

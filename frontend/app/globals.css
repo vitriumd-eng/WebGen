@@ -12,8 +12,8 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #0a0b0d;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #202124;
 }
 
 body {
@@ -36,25 +36,25 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #13151a;
+  background: #f8f9fa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2d35;
+  background: #e8eaed;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3d45;
+  background: #dadce0;
 }
 
 /* Animations */
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 8px 16px 0 rgba(26, 115, 232, 0.15);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    box-shadow: 0 8px 24px 0 rgba(26, 115, 232, 0.25);
   }
 }
 
@@ -81,29 +81,29 @@ a {
 }
 
 .btn-primary {
-  @apply bg-gradient-accent text-dark-bg hover:shadow-neon;
+  @apply bg-accent-primary text-text-inverse hover:shadow-soft-lg hover:bg-blue-600;
 }
 
 .btn-secondary {
-  @apply bg-dark-elevated border border-dark-border hover:border-accent-primary;
+  @apply bg-light-surface border border-light-border hover:border-accent-primary hover:bg-light-hover;
 }
 
 .btn-danger {
-  @apply bg-accent-danger hover:bg-red-600;
+  @apply bg-accent-danger text-text-inverse hover:bg-red-600;
 }
 
 /* Card styles */
 .card {
-  @apply bg-dark-surface border border-dark-border rounded-xl p-6;
+  @apply bg-light-surface border border-light-border rounded-xl p-6 shadow-soft;
 }
 
 .card-elevated {
-  @apply bg-dark-elevated border border-dark-border rounded-xl p-6 hover:border-accent-primary transition-colors;
+  @apply bg-light-elevated border border-light-border rounded-xl p-6 shadow-soft-lg hover:shadow-gemini transition-all;
 }
 
 /* Input styles */
 .input {
-  @apply bg-dark-elevated border border-dark-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-primary transition-colors;
+  @apply bg-light-bg border border-light-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/20 transition-all;
 }
 
 /* Badge styles */
@@ -112,14 +112,14 @@ a {
 }
 
 .badge-primary {
-  @apply bg-accent-primary/20 text-accent-primary;
+  @apply bg-blue-50 text-accent-primary border border-blue-100;
 }
 
 .badge-success {
-  @apply bg-accent-secondary/20 text-accent-secondary;
+  @apply bg-green-50 text-accent-secondary border border-green-100;
 }
 
 .badge-purple {
-  @apply bg-accent-purple/20 text-accent-purple;
+  @apply bg-purple-50 text-accent-purple border border-purple-100;
 }
 

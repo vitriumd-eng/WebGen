@@ -22,7 +22,7 @@ export default function HomePage() {
       {/* HERO SECTION - Блок 1: Ключевой анонс */}
       <section className="relative overflow-hidden py-20 px-4 mt-16">
         {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 via-transparent to-accent-secondary/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-accent-secondary/10"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -76,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Блок 2: Проблема и Решение */}
-      <section className="py-12 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-light-surface">
         <div className="max-w-5xl mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
@@ -127,7 +127,7 @@ export default function HomePage() {
           <div className="relative">
             <div className="absolute -inset-6 bg-gradient-accent rounded-3xl opacity-20 blur-2xl animate-pulse-slow"></div>
             <div className="relative card-elevated border-2 border-accent-primary p-10">
-              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-accent-primary text-dark-bg px-6 py-3 rounded-full font-bold text-lg shadow-lg animate-bounce-slow">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-accent-primary text-light-bg px-6 py-3 rounded-full font-bold text-lg shadow-lg animate-bounce-slow">
                 🔥 ФЛАГМАН
               </div>
               
@@ -174,7 +174,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="border-t border-dark-border pt-8 mb-8">
+              <div className="border-t border-light-border pt-8 mb-8">
                 <div className="flex items-baseline justify-center space-x-3 mb-2">
                   <span className="text-6xl font-bold bg-gradient-accent bg-clip-text text-transparent">4 990</span>
                   <span className="text-3xl text-text-secondary">₽</span>
@@ -198,7 +198,7 @@ export default function HomePage() {
       </section>
 
       {/* Блок 3: Как это работает (визуализация процесса) */}
-      <section className="py-12 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-light-surface">
         <div className="max-w-5xl mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
@@ -220,7 +220,7 @@ export default function HomePage() {
                 <p className="text-text-secondary mb-4">
                   URL группы конкурента, сообщества или страницы продукта
                 </p>
-                <div className="bg-dark-surface rounded-lg p-4 text-sm text-accent-primary font-mono">
+                <div className="bg-light-surface rounded-lg p-4 text-sm text-accent-primary font-mono">
                   vk.com/competitor_group
                 </div>
               </div>
@@ -270,7 +270,7 @@ export default function HomePage() {
       </section>
 
       {/* Блок 4: AI-Скоринг CVR/ROAS */}
-      <section className="py-12 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-light-surface">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -325,7 +325,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-dark-bg rounded-xl border border-accent-primary/30">
+              <div className="mt-8 p-6 bg-light-bg rounded-xl border border-accent-primary/30">
                 <div className="flex items-center justify-center">
                   <span className="text-text-secondary mr-4">Стоимость AI-скоринга:</span>
                   <span className="text-3xl font-bold text-accent-primary">100₽</span>
@@ -344,14 +344,14 @@ export default function HomePage() {
                     <span className="text-sm text-text-secondary">CVR Score</span>
                     <span className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">87/100</span>
                   </div>
-                  <div className="h-4 bg-dark-bg rounded-full overflow-hidden">
+                  <div className="h-4 bg-light-bg rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-accent" style={{width: '87%'}}></div>
                   </div>
                 </div>
 
                 {/* Recommendations */}
                 <div className="space-y-3">
-                  <div className="p-4 bg-dark-bg rounded-lg">
+                  <div className="p-4 bg-light-bg rounded-lg">
                     <div className="flex items-center space-x-2 mb-2">
                       <FaCheckCircle className="text-green-400" />
                       <span className="font-semibold text-sm">Сильные стороны</span>
@@ -359,7 +359,7 @@ export default function HomePage() {
                     <p className="text-xs text-text-secondary">Яркий контраст, четкий CTA, эмоциональная фотография</p>
                   </div>
 
-                  <div className="p-4 bg-dark-bg rounded-lg">
+                  <div className="p-4 bg-light-bg rounded-lg">
                     <div className="flex items-center space-x-2 mb-2">
                       <FaArrowRight className="text-yellow-400" />
                       <span className="font-semibold text-sm">Рекомендации</span>
@@ -367,7 +367,7 @@ export default function HomePage() {
                     <p className="text-xs text-text-secondary">Добавить социальное доказательство, усилить оффер</p>
                   </div>
 
-                  <div className="p-4 bg-dark-bg rounded-lg">
+                  <div className="p-4 bg-light-bg rounded-lg">
                     <div className="flex items-center space-x-2 mb-2">
                       <FaChartLine className="text-accent-primary" />
                       <span className="font-semibold text-sm">Прогноз</span>
@@ -398,7 +398,7 @@ export default function HomePage() {
             <div className="card-elevated p-8">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold">Векторный креатив</h3>
-                <span className="badge bg-accent-primary text-dark-bg">NEW</span>
+                <span className="badge bg-accent-primary text-light-bg">NEW</span>
               </div>
               
               <div className="aspect-video bg-gradient-accent rounded-xl mb-6 flex items-center justify-center relative overflow-hidden">
@@ -410,7 +410,7 @@ export default function HomePage() {
                 Масштабируемая векторная графика (SVG) для логотипов и иконок через Recraft.ai
               </p>
 
-              <div className="flex items-center justify-between pt-4 border-t border-dark-border">
+              <div className="flex items-center justify-between pt-4 border-t border-light-border">
                 <span className="text-text-secondary">Стоимость:</span>
                 <span className="text-2xl font-bold text-accent-primary">120₽</span>
               </div>
@@ -432,7 +432,7 @@ export default function HomePage() {
                 Плавный переход между изображениями — идеально для stories и reels
               </p>
 
-              <div className="flex items-center justify-between pt-4 border-t border-dark-border">
+              <div className="flex items-center justify-between pt-4 border-t border-light-border">
                 <span className="text-text-secondary">Стоимость:</span>
                 <span className="text-2xl font-bold text-accent-secondary">400₽</span>
               </div>
@@ -442,7 +442,7 @@ export default function HomePage() {
             <div className="card-elevated p-8 md:col-span-2">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold">Брендовый Сет (AI Fusion)</h3>
-                <span className="badge bg-gradient-accent text-dark-bg">🔥 HOT</span>
+                <span className="badge bg-gradient-accent text-light-bg">🔥 HOT</span>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-6">
@@ -461,7 +461,7 @@ export default function HomePage() {
                 Fusion-цепочка: Recraft.ai + Брендбук. Генерация 3-х креативов в едином стиле
               </p>
 
-              <div className="flex items-center justify-center pt-4 border-t border-dark-border">
+              <div className="flex items-center justify-center pt-4 border-t border-light-border">
                 <span className="text-text-secondary mr-4">Стоимость:</span>
                 <span className="text-3xl font-bold text-accent-primary">200₽</span>
               </div>
@@ -471,7 +471,7 @@ export default function HomePage() {
       </section>
 
       {/* Блок 6: ROI-Сравнение */}
-      <section className="py-12 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-light-surface">
         <div className="max-w-5xl mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
@@ -485,7 +485,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-dark-border">
+                <tr className="border-b-2 border-light-border">
                   <th className="text-left py-4 px-4">Параметр</th>
                   <th className="text-center py-4 px-4">Агентство</th>
                   <th className="text-center py-4 px-4">Дизайнер</th>
@@ -495,31 +495,31 @@ export default function HomePage() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-dark-border">
+                <tr className="border-b border-light-border">
                   <td className="py-4 px-4">Стоимость</td>
                   <td className="text-center py-4 px-4 text-red-400">50 000₽</td>
                   <td className="text-center py-4 px-4 text-yellow-400">20 000₽</td>
                   <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary font-bold">4 990₽</td>
                 </tr>
-                <tr className="border-b border-dark-border">
+                <tr className="border-b border-light-border">
                   <td className="py-4 px-4">Срок выполнения</td>
                   <td className="text-center py-4 px-4">7-14 дней</td>
                   <td className="text-center py-4 px-4">3-5 дней</td>
                   <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary font-bold">15 минут</td>
                 </tr>
-                <tr className="border-b border-dark-border">
+                <tr className="border-b border-light-border">
                   <td className="py-4 px-4">Анализ конкурентов</td>
                   <td className="text-center py-4 px-4">✅ Да</td>
                   <td className="text-center py-4 px-4">❌ Нет</td>
                   <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary">✅ AI-анализ</td>
                 </tr>
-                <tr className="border-b border-dark-border">
+                <tr className="border-b border-light-border">
                   <td className="py-4 px-4">AI-скоринг CVR</td>
                   <td className="text-center py-4 px-4">❌ Нет</td>
                   <td className="text-center py-4 px-4">❌ Нет</td>
                   <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary">✅ Включено</td>
                 </tr>
-                <tr className="border-b border-dark-border">
+                <tr className="border-b border-light-border">
                   <td className="py-4 px-4">Количество креативов</td>
                   <td className="text-center py-4 px-4">3-5 шт</td>
                   <td className="text-center py-4 px-4">3-5 шт</td>
@@ -582,7 +582,7 @@ export default function HomePage() {
       </section>
 
       {/* Блок 8: Модель Оплаты */}
-      <section className="py-12 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-light-surface">
         <div className="max-w-5xl mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
@@ -619,7 +619,7 @@ export default function HomePage() {
                   <span className="text-sm">Скидки на пакеты креативов</span>
                 </div>
               </div>
-              <div className="mt-6 pt-6 border-t border-dark-border text-center">
+              <div className="mt-6 pt-6 border-t border-light-border text-center">
                 <div className="text-3xl font-bold bg-gradient-accent bg-clip-text text-transparent">
                   от 2 990₽
                 </div>
@@ -635,24 +635,24 @@ export default function HomePage() {
                 Платите только за то, что генерируете
               </p>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-dark-bg rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
                   <span className="text-sm">Статичное изображение</span>
                   <span className="font-bold text-accent-primary">100₽</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-dark-bg rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
                   <span className="text-sm">Векторный креатив</span>
                   <span className="font-bold text-accent-primary">120₽</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-dark-bg rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
                   <span className="text-sm">Анимация (GIF/MP4)</span>
                   <span className="font-bold text-accent-primary">250₽</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-dark-bg rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
                   <span className="text-sm">AI-скоринг</span>
                   <span className="font-bold text-accent-primary">20₽</span>
                 </div>
               </div>
-              <div className="mt-6 pt-6 border-t border-dark-border text-center">
+              <div className="mt-6 pt-6 border-t border-light-border text-center">
                 <div className="text-sm text-accent-primary font-semibold">
                   1 Кредит = 1 Рубль
                 </div>
@@ -687,7 +687,7 @@ export default function HomePage() {
             {[...Array(10)].map((_, idx) => (
               <div key={idx} className="aspect-square card p-4 hover:border-accent-primary transition-all cursor-pointer group">
                 <div className="w-full h-full bg-gradient-accent rounded-lg flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-dark-bg opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-light-bg opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center">
                     <FaStar className="text-2xl text-accent-primary" />
                   </div>
                   <span className="text-3xl font-bold">#{idx + 1}</span>
@@ -726,10 +726,10 @@ export default function HomePage() {
       </section>
 
       {/* Блок 10: Финальный CTA */}
-      <section className="py-16 px-4 bg-gradient-to-br from-accent-primary/20 via-dark-surface to-accent-secondary/20">
+      <section className="py-16 px-4 bg-gradient-to-br from-accent-primary/20 via-light-surface to-accent-secondary/20">
         <div className="max-w-4xl mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-accent-primary text-dark-bg px-6 py-3 rounded-full mb-8 text-lg font-bold animate-bounce-slow">
+            <div className="inline-flex items-center space-x-2 bg-accent-primary text-light-bg px-6 py-3 rounded-full mb-8 text-lg font-bold animate-bounce-slow">
               <FaFire />
               <span>Специальное предложение</span>
             </div>
