@@ -487,165 +487,213 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Блок 5: Премиум-Форматы (AI Fusion) */}
-      <section className="py-12 px-4">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Доступ к <span className="bg-gradient-accent bg-clip-text text-transparent">премиум-форматам</span>, которые поднимают CTR
+      {/* Блок 5: Премиум-Форматы с Glass Gallery */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-orange-50 to-yellow-50"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              Премиум-форматы <span className="bg-gradient-accent bg-clip-text text-transparent">для CTR</span>
             </h2>
-            <p className="text-lg text-text-secondary">
-              Векторные креативы, морфинг-видео и AI Fusion — всё в одной платформе
+            <p className="text-xl text-text-secondary">
+              Векторные креативы, морфинг-видео и AI Fusion в одной платформе
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Векторный креатив */}
-            <div className="card-elevated p-8">
+            <div className="glass-strong p-8 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold">Векторный креатив</h3>
-                <span className="badge bg-accent-primary text-light-bg">NEW</span>
+                <span className="glass-button px-4 py-2 rounded-full text-sm font-bold text-accent-primary">NEW</span>
               </div>
               
-              <div className="aspect-video bg-gradient-accent rounded-xl mb-6 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                <FaImage className="text-6xl relative z-10" />
+              <div className="aspect-video bg-gradient-accent rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 backdrop-blur-sm bg-white/20"></div>
+                <FaImage className="text-7xl text-white relative z-10" />
               </div>
 
-              <p className="text-text-secondary mb-4">
+              <p className="text-text-secondary mb-6 text-lg">
                 Масштабируемая векторная графика (SVG) для логотипов и иконок через Recraft.ai
               </p>
 
-              <div className="flex items-center justify-between pt-4 border-t border-light-border">
+              <div className="glass-button p-4 rounded-xl flex items-center justify-between">
                 <span className="text-text-secondary">Стоимость:</span>
-                <span className="text-2xl font-bold text-accent-primary">120₽</span>
+                <span className="text-3xl font-bold text-accent-primary">120₽</span>
               </div>
             </div>
 
             {/* Видео-морфинг */}
-            <div className="card-elevated p-8">
+            <div className="glass-strong p-8 rounded-3xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold">Морфинг-видео</h3>
-                <span className="badge badge-purple">Premium</span>
+                <span className="glass-button px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-white">Premium</span>
               </div>
               
-              <div className="aspect-video bg-gradient-purple rounded-xl mb-6 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                <FaVideo className="text-6xl relative z-10" />
+              <div className="aspect-video bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 backdrop-blur-sm bg-white/20"></div>
+                <FaVideo className="text-7xl text-white relative z-10" />
               </div>
 
-              <p className="text-text-secondary mb-4">
+              <p className="text-text-secondary mb-6 text-lg">
                 Плавный переход между изображениями — идеально для stories и reels
               </p>
 
-              <div className="flex items-center justify-between pt-4 border-t border-light-border">
+              <div className="glass-button p-4 rounded-xl flex items-center justify-between">
                 <span className="text-text-secondary">Стоимость:</span>
-                <span className="text-2xl font-bold text-accent-secondary">400₽</span>
+                <span className="text-3xl font-bold text-accent-secondary">400₽</span>
               </div>
             </div>
 
             {/* Брендовый сет */}
-            <div className="card-elevated p-8 md:col-span-2">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold">Брендовый Сет (AI Fusion)</h3>
-                <span className="badge bg-gradient-accent text-light-bg">🔥 HOT</span>
+            <div className="glass-strong p-10 rounded-3xl md:col-span-2 hover:scale-105 transition-all duration-300 border-2 border-accent-primary/30">
+              <div className="flex items-center justify-between mb-8">
+                <h3 className="text-3xl font-bold">Брендовый Сет (AI Fusion)</h3>
+                <span className="bg-gradient-accent px-6 py-3 rounded-full text-lg font-bold text-white shadow-glass-lg">🔥 HOT</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="aspect-square bg-gradient-accent rounded-xl flex items-center justify-center">
-                  <span className="text-2xl font-bold">1</span>
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="aspect-square bg-gradient-accent rounded-3xl flex items-center justify-center shadow-glass-lg hover:scale-110 transition-all duration-300">
+                  <span className="text-4xl font-bold text-white">1</span>
                 </div>
-                <div className="aspect-square bg-gradient-purple rounded-xl flex items-center justify-center">
-                  <span className="text-2xl font-bold">2</span>
+                <div className="aspect-square bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center shadow-glass-lg hover:scale-110 transition-all duration-300">
+                  <span className="text-4xl font-bold text-white">2</span>
                 </div>
-                <div className="aspect-square bg-gradient-accent rounded-xl flex items-center justify-center">
-                  <span className="text-2xl font-bold">3</span>
+                <div className="aspect-square bg-gradient-to-br from-green-500 to-teal-500 rounded-3xl flex items-center justify-center shadow-glass-lg hover:scale-110 transition-all duration-300">
+                  <span className="text-4xl font-bold text-white">3</span>
                 </div>
               </div>
 
-              <p className="text-text-secondary mb-4 text-center">
+              <p className="text-text-secondary mb-8 text-center text-xl">
                 Fusion-цепочка: Recraft.ai + Брендбук. Генерация 3-х креативов в едином стиле
               </p>
 
-              <div className="flex items-center justify-center pt-4 border-t border-light-border">
-                <span className="text-text-secondary mr-4">Стоимость:</span>
-                <span className="text-3xl font-bold text-accent-primary">200₽</span>
+              <div className="glass-button p-6 rounded-2xl flex items-center justify-center">
+                <span className="text-text-secondary mr-4 text-lg">Стоимость:</span>
+                <span className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">200₽</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Блок 6: ROI-Сравнение */}
-      <section className="py-12 px-4 bg-light-surface">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Сравните <span className="bg-gradient-accent bg-clip-text text-transparent">стоимость</span> с альтернативами
+      {/* Блок 6: ROI-Сравнение с Glass Cards */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              Сравните <span className="bg-gradient-accent bg-clip-text text-transparent">стоимость</span>
             </h2>
-            <p className="text-lg text-text-secondary">
-              Агентство vs. Дизайнер vs. Наш флагманский пакет
+            <p className="text-xl text-text-secondary">
+              Агентство vs. Дизайнер vs. Fortar
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-light-border">
-                  <th className="text-left py-4 px-4">Параметр</th>
-                  <th className="text-center py-4 px-4">Агентство</th>
-                  <th className="text-center py-4 px-4">Дизайнер</th>
-                  <th className="text-center py-4 px-4 bg-accent-primary/10 rounded-t-xl">
-                    <span className="bg-gradient-accent bg-clip-text text-transparent font-bold">Наш пакет</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-light-border">
-                  <td className="py-4 px-4">Стоимость</td>
-                  <td className="text-center py-4 px-4 text-red-400">50 000₽</td>
-                  <td className="text-center py-4 px-4 text-yellow-400">20 000₽</td>
-                  <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary font-bold">4 990₽</td>
-                </tr>
-                <tr className="border-b border-light-border">
-                  <td className="py-4 px-4">Срок выполнения</td>
-                  <td className="text-center py-4 px-4">7-14 дней</td>
-                  <td className="text-center py-4 px-4">3-5 дней</td>
-                  <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary font-bold">15 минут</td>
-                </tr>
-                <tr className="border-b border-light-border">
-                  <td className="py-4 px-4">Анализ конкурентов</td>
-                  <td className="text-center py-4 px-4">✅ Да</td>
-                  <td className="text-center py-4 px-4">❌ Нет</td>
-                  <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary">✅ AI-анализ</td>
-                </tr>
-                <tr className="border-b border-light-border">
-                  <td className="py-4 px-4">AI-скоринг CVR</td>
-                  <td className="text-center py-4 px-4">❌ Нет</td>
-                  <td className="text-center py-4 px-4">❌ Нет</td>
-                  <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary">✅ Включено</td>
-                </tr>
-                <tr className="border-b border-light-border">
-                  <td className="py-4 px-4">Количество креативов</td>
-                  <td className="text-center py-4 px-4">3-5 шт</td>
-                  <td className="text-center py-4 px-4">3-5 шт</td>
-                  <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary font-bold">10 шт</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4">Правки</td>
-                  <td className="text-center py-4 px-4">2-3 раунда</td>
-                  <td className="text-center py-4 px-4">1-2 раунда</td>
-                  <td className="text-center py-4 px-4 bg-accent-primary/10 text-accent-primary rounded-b-xl">Неограниченно</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {/* Агентство */}
+            <div className="glass-card p-8 rounded-3xl">
+              <h3 className="text-2xl font-bold mb-6 text-center">Агентство</h3>
+              <div className="space-y-6">
+                <div className="text-center">
+                  <p className="text-text-secondary mb-2">Стоимость</p>
+                  <p className="text-4xl font-bold text-red-500">50 000₽</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Срок</p>
+                  <p className="font-bold">7-14 дней</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Анализ</p>
+                  <p className="font-bold">✅ Да</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">AI-скоринг</p>
+                  <p className="font-bold">❌ Нет</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Креативов</p>
+                  <p className="font-bold">3-5 шт</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Правки</p>
+                  <p className="font-bold">2-3 раунда</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Дизайнер */}
+            <div className="glass-card p-8 rounded-3xl">
+              <h3 className="text-2xl font-bold mb-6 text-center">Дизайнер</h3>
+              <div className="space-y-6">
+                <div className="text-center">
+                  <p className="text-text-secondary mb-2">Стоимость</p>
+                  <p className="text-4xl font-bold text-yellow-600">20 000₽</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Срок</p>
+                  <p className="font-bold">3-5 дней</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Анализ</p>
+                  <p className="font-bold">❌ Нет</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">AI-скоринг</p>
+                  <p className="font-bold">❌ Нет</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Креативов</p>
+                  <p className="font-bold">3-5 шт</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl">
+                  <p className="text-sm text-text-secondary mb-1">Правки</p>
+                  <p className="font-bold">1-2 раунда</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Наш пакет */}
+            <div className="glass-strong p-8 rounded-3xl border-2 border-accent-primary shadow-glass-lg scale-105">
+              <div className="bg-gradient-accent px-4 py-2 rounded-full text-white font-bold text-center mb-6">
+                🏆 FORTAR
+              </div>
+              <div className="space-y-6">
+                <div className="text-center">
+                  <p className="text-text-secondary mb-2">Стоимость</p>
+                  <p className="text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent">4 990₽</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl border border-accent-primary/30">
+                  <p className="text-sm text-text-secondary mb-1">Срок</p>
+                  <p className="font-bold text-accent-primary">15 минут</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl border border-accent-primary/30">
+                  <p className="text-sm text-text-secondary mb-1">Анализ</p>
+                  <p className="font-bold text-accent-primary">✅ AI-анализ</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl border border-accent-primary/30">
+                  <p className="text-sm text-text-secondary mb-1">AI-скоринг</p>
+                  <p className="font-bold text-accent-primary">✅ Включено</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl border border-accent-primary/30">
+                  <p className="text-sm text-text-secondary mb-1">Креативов</p>
+                  <p className="font-bold text-accent-primary">10 шт</p>
+                </div>
+                <div className="glass-button p-4 rounded-xl border border-accent-primary/30">
+                  <p className="text-sm text-text-secondary mb-1">Правки</p>
+                  <p className="font-bold text-accent-primary">Неограниченно</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-2xl font-bold mb-4">
-              Экономия: <span className="text-green-400">до 45 000₽</span> по сравнению с агентством
+          <div className="glass-strong p-10 rounded-3xl text-center max-w-2xl mx-auto">
+            <p className="text-3xl font-bold mb-6">
+              Экономия: <span className="text-green-500">до 45 000₽</span>
             </p>
-            <button onClick={() => router.push('/pricing')} className="btn-primary btn-lg">
+            <button onClick={() => router.push('/pricing')} className="bg-gradient-accent text-white px-12 py-5 rounded-2xl text-xl font-bold hover:scale-105 transition-all duration-300 shadow-glass-lg">
               Получить доступ сейчас
             </button>
           </div>
