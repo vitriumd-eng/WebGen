@@ -214,30 +214,30 @@ export default function HomePage() {
                   <FaRocket className="text-5xl text-accent-secondary animate-pulse" />
                 </div>
 
-                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
-                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
-                      <span className="text-base">5 статичных изображений</span>
-                    </div>
-                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
-                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
-                      <span className="text-base">2 анимации (GIF/MP4)</span>
-                    </div>
-                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
-                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
-                      <span className="text-base">3 AI-скоринга (CVR)</span>
-                    </div>
-                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
-                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
-                      <span className="text-base">Анализ аудитории</span>
-                    </div>
-                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
-                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
-                      <span className="text-base">Адаптация брендбука</span>
-                    </div>
-                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
-                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
-                      <span className="text-base">Готовность: 15 минут</span>
-                    </div>
+                <div className="space-y-4 mb-8">
+                  <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                    <span className="text-base">5 статичных изображений</span>
+                  </div>
+                  <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                    <span className="text-base">2 анимации (GIF/MP4)</span>
+                  </div>
+                  <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                    <span className="text-base">3 AI-скоринга (CVR)</span>
+                  </div>
+                  <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                    <span className="text-base">Анализ аудитории</span>
+                  </div>
+                  <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                    <span className="text-base">Адаптация брендбука</span>
+                  </div>
+                  <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                    <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                    <span className="text-base">Готовность: 15 минут</span>
                   </div>
                 </div>
 
@@ -700,231 +700,251 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Блок 7: AI Hub */}
-      <section className="py-12 px-4">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-accent bg-clip-text text-transparent">AI Hub</span>: 7 движков в одном окне
+      {/* Блок 7: AI Hub с Glass Grid */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">AI Hub</span>: 7 движков
             </h2>
-            <p className="text-lg text-text-secondary">
-              Платите только за то, что используете. Выбирайте лучший AI для каждой задачи.
+            <p className="text-xl text-text-secondary">
+              Выбирайте лучший AI для каждой задачи. Платите только за то, что используете.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: 'DALL-E 3', specialty: 'Фотореализм' },
-              { name: 'Stable Diffusion', specialty: 'Стилизация' },
-              { name: 'Recraft.ai', specialty: 'Векторы' },
-              { name: 'RunwayML', specialty: 'Анимация' },
-              { name: 'Pika Labs', specialty: 'Видео' },
-              { name: 'GPT-4 Vision', specialty: 'Контекст' },
-              { name: 'Midjourney', specialty: 'Арт' },
-              { name: 'GPT-4', specialty: 'Скоринг' }
+              { name: 'DALL-E 3', specialty: 'Фотореализм', color: 'from-blue-500 to-cyan-500' },
+              { name: 'Stable Diffusion', specialty: 'Стилизация', color: 'from-purple-500 to-pink-500' },
+              { name: 'Recraft.ai', specialty: 'Векторы', color: 'from-orange-500 to-red-500' },
+              { name: 'RunwayML', specialty: 'Анимация', color: 'from-green-500 to-teal-500' },
+              { name: 'Pika Labs', specialty: 'Видео', color: 'from-indigo-500 to-purple-500' },
+              { name: 'GPT-4 Vision', specialty: 'Контекст', color: 'from-yellow-500 to-orange-500' },
+              { name: 'Midjourney', specialty: 'Арт', color: 'from-pink-500 to-rose-500' },
+              { name: 'GPT-4', specialty: 'Скоринг', color: 'from-teal-500 to-cyan-500' }
             ].map((engine, idx) => (
-              <div key={idx} className="card p-6 text-center hover:border-accent-primary transition-all">
-                <div className="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-3">
-                  <FaStar />
+              <div key={idx} className="glass-card p-6 text-center hover:scale-110 transition-all duration-300">
+                <div className={`w-16 h-16 bg-gradient-to-br ${engine.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glass`}>
+                  <FaStar className="text-white text-2xl" />
                 </div>
-                <h4 className="font-bold mb-1 text-sm">{engine.name}</h4>
-                <p className="text-xs text-text-muted">{engine.specialty}</p>
+                <h4 className="font-bold mb-2">{engine.name}</h4>
+                <p className="text-sm text-text-muted">{engine.specialty}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Блок 8: Модель Оплаты */}
-      <section className="py-12 px-4 bg-light-surface">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Гибридная система: <span className="bg-gradient-accent bg-clip-text text-transparent">Подписка + Кредиты</span>
+      {/* Блок 8: Модель Оплаты с Twin Glass Cards */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">Подписка + Кредиты</span>
             </h2>
-            <p className="text-lg text-text-secondary">
+            <p className="text-xl text-text-secondary">
               Платите за доступ к интеллекту, а за креативы — только когда используете
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Подписка */}
-            <div className="card-elevated p-8">
-              <div className="text-5xl mb-6 text-center">🔑</div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Подписка</h3>
-              <p className="text-text-secondary text-center mb-6">
+            <div className="glass-strong p-10 rounded-3xl hover:scale-105 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-accent rounded-3xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-glass">
+                🔑
+              </div>
+              <h3 className="text-3xl font-bold mb-4 text-center">Подписка</h3>
+              <p className="text-text-secondary text-center mb-8 text-lg">
                 Доступ к премиум-функциям и AI-анализу
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <FaCheckCircle className="text-accent-primary flex-shrink-0" />
-                  <span className="text-sm">Видео-морфинг и контекстные креативы</span>
+              <div className="space-y-4 mb-8">
+                <div className="glass-button p-4 rounded-xl flex items-center space-x-3">
+                  <FaCheckCircle className="text-accent-primary flex-shrink-0 text-xl" />
+                  <span>Видео-морфинг и контекстные креативы</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <FaCheckCircle className="text-accent-primary flex-shrink-0" />
-                  <span className="text-sm">AI-скоринг CVR/ROAS</span>
+                <div className="glass-button p-4 rounded-xl flex items-center space-x-3">
+                  <FaCheckCircle className="text-accent-primary flex-shrink-0 text-xl" />
+                  <span>AI-скоринг CVR/ROAS</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <FaCheckCircle className="text-accent-primary flex-shrink-0" />
-                  <span className="text-sm">Анализ конкурентов по ссылке</span>
+                <div className="glass-button p-4 rounded-xl flex items-center space-x-3">
+                  <FaCheckCircle className="text-accent-primary flex-shrink-0 text-xl" />
+                  <span>Анализ конкурентов по ссылке</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <FaCheckCircle className="text-accent-primary flex-shrink-0" />
-                  <span className="text-sm">Скидки на пакеты креативов</span>
+                <div className="glass-button p-4 rounded-xl flex items-center space-x-3">
+                  <FaCheckCircle className="text-accent-primary flex-shrink-0 text-xl" />
+                  <span>Скидки на пакеты креативов</span>
                 </div>
               </div>
-              <div className="mt-6 pt-6 border-t border-light-border text-center">
-                <div className="text-3xl font-bold bg-gradient-accent bg-clip-text text-transparent">
+              <div className="text-center">
+                <div className="text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-2">
                   от 2 990₽
                 </div>
-                <div className="text-sm text-text-muted">в месяц</div>
+                <div className="text-lg text-text-muted">в месяц</div>
               </div>
             </div>
 
             {/* Кредиты */}
-            <div className="card-elevated p-8">
-              <div className="text-5xl mb-6 text-center">💳</div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Кредиты</h3>
-              <p className="text-text-secondary text-center mb-6">
+            <div className="glass-strong p-10 rounded-3xl hover:scale-105 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-500 rounded-3xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-glass">
+                💳
+              </div>
+              <h3 className="text-3xl font-bold mb-4 text-center">Кредиты</h3>
+              <p className="text-text-secondary text-center mb-8 text-lg">
                 Платите только за то, что генерируете
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
-                  <span className="text-sm">Статичное изображение</span>
-                  <span className="font-bold text-accent-primary">100₽</span>
+              <div className="space-y-4 mb-8">
+                <div className="glass-button p-4 rounded-xl flex items-center justify-between">
+                  <span>Статичное изображение</span>
+                  <span className="font-bold text-accent-primary text-xl">100₽</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
-                  <span className="text-sm">Векторный креатив</span>
-                  <span className="font-bold text-accent-primary">120₽</span>
+                <div className="glass-button p-4 rounded-xl flex items-center justify-between">
+                  <span>Векторный креатив</span>
+                  <span className="font-bold text-accent-primary text-xl">120₽</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
-                  <span className="text-sm">Анимация (GIF/MP4)</span>
-                  <span className="font-bold text-accent-primary">250₽</span>
+                <div className="glass-button p-4 rounded-xl flex items-center justify-between">
+                  <span>Анимация (GIF/MP4)</span>
+                  <span className="font-bold text-accent-primary text-xl">250₽</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-light-bg rounded-lg">
-                  <span className="text-sm">AI-скоринг</span>
-                  <span className="font-bold text-accent-primary">20₽</span>
+                <div className="glass-button p-4 rounded-xl flex items-center justify-between">
+                  <span>AI-скоринг</span>
+                  <span className="font-bold text-accent-primary text-xl">100₽</span>
                 </div>
               </div>
-              <div className="mt-6 pt-6 border-t border-light-border text-center">
-                <div className="text-sm text-accent-primary font-semibold">
+              <div className="text-center">
+                <div className="text-lg text-accent-primary font-bold">
                   1 Кредит = 1 Рубль
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-xl mb-6">
-              💡 <span className="font-bold">Совет:</span> Начните с бесплатного тарифа (50 кредитов), попробуйте платформу, затем выберите подписку
+          <div className="mt-16 glass-strong p-10 rounded-3xl text-center max-w-3xl mx-auto">
+            <p className="text-2xl mb-8">
+              💡 <span className="font-bold">Совет:</span> Начните с бесплатного тарифа (50 кредитов), попробуйте платформу
             </p>
-            <button onClick={handleGetStarted} className="btn-primary btn-lg">
+            <button onClick={handleGetStarted} className="bg-gradient-accent text-white px-12 py-5 rounded-2xl text-xl font-bold hover:scale-105 transition-all duration-300 shadow-glass-lg">
               Получить 50 бесплатных кредитов
             </button>
           </div>
         </div>
       </section>
 
-      {/* Блок 9: Библиотека Топ-50 */}
-      <section className="py-12 px-4">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-accent bg-clip-text text-transparent">Библиотека Топ-50 креативов</span>
+      {/* Блок 9: Библиотека Топ-50 с Glass Gallery */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">Библиотека Топ-50</span> креативов
             </h2>
-            <p className="text-lg text-text-secondary">
+            <p className="text-xl text-text-secondary">
               Изучайте лучшие гипотезы конкурентов до того, как они их поменяли
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
             {[...Array(10)].map((_, idx) => (
-              <div key={idx} className="aspect-square card p-4 hover:border-accent-primary transition-all cursor-pointer group">
-                <div className="w-full h-full bg-gradient-accent rounded-lg flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-light-bg opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center">
-                    <FaStar className="text-2xl text-accent-primary" />
+              <div key={idx} className="glass-card p-3 rounded-2xl cursor-pointer group hover:scale-105 transition-all duration-300">
+                <div className="aspect-square bg-gradient-accent rounded-xl flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                    <FaStar className="text-4xl text-accent-primary" />
                   </div>
-                  <span className="text-3xl font-bold">#{idx + 1}</span>
+                  <span className="text-4xl font-bold text-white">#{idx + 1}</span>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="max-w-2xl mx-auto card-elevated p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="text-5xl mb-4">👀</div>
-                <h4 className="font-bold mb-2">Просмотр Топ-50</h4>
-                <p className="text-text-secondary text-sm mb-4">
+          <div className="glass-strong p-10 rounded-3xl max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="text-center glass-button p-8 rounded-2xl">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-500 rounded-3xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-glass">
+                  👀
+                </div>
+                <h4 className="font-bold text-2xl mb-4">Просмотр Топ-50</h4>
+                <p className="text-text-secondary mb-6">
                   Бесплатный доступ к превью всех креативов
                 </p>
-                <div className="text-2xl font-bold text-green-400">БЕСПЛАТНО</div>
+                <div className="text-4xl font-bold text-green-500">БЕСПЛАТНО</div>
               </div>
-              <div className="text-center">
-                <div className="text-5xl mb-4">🔓</div>
-                <h4 className="font-bold mb-2">Детали и промпт</h4>
-                <p className="text-text-secondary text-sm mb-4">
+              <div className="text-center glass-button p-8 rounded-2xl">
+                <div className="w-20 h-20 bg-gradient-accent rounded-3xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-glass">
+                  🔓
+                </div>
+                <h4 className="font-bold text-2xl mb-4">Детали и промпт</h4>
+                <p className="text-text-secondary mb-6">
                   Полный креатив + промпт для воспроизведения
                 </p>
-                <div className="text-2xl font-bold text-accent-primary">5₽</div>
+                <div className="text-4xl font-bold text-accent-primary">5₽</div>
               </div>
             </div>
           </div>
 
           <div className="mt-12 text-center">
-            <Link href="/library" className="btn-secondary btn-lg">
+            <Link href="/library" className="bg-gradient-accent text-white px-12 py-5 rounded-2xl text-xl font-bold hover:scale-105 transition-all duration-300 shadow-glass-lg inline-block">
               Перейти в библиотеку
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Блок 10: Финальный CTA */}
-      <section className="py-16 px-4 bg-gradient-to-br from-accent-primary/20 via-light-surface to-accent-secondary/20">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-accent-primary text-light-bg px-6 py-3 rounded-full mb-8 text-lg font-bold animate-bounce-slow">
+      {/* Блок 10: Финальный CTA с Glassmorphism Hero */}
+      <section className="relative py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100"></div>
+        
+        {/* Animated Background Shapes */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-pink-400/30 to-orange-400/30 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+        
+        <div className="max-w-5xl mx-auto px-4 relative z-10">
+          <div className="glass-strong p-16 rounded-3xl text-center">
+            <div className="bg-gradient-accent px-8 py-4 rounded-full text-white font-bold text-xl inline-flex items-center space-x-3 mb-12 shadow-glass-lg animate-bounce-slow">
               <FaFire />
               <span>Специальное предложение</span>
             </div>
 
-            <h2 className="text-5xl font-bold mb-6">
+            <h2 className="text-6xl font-bold mb-8">
               Готовы запустить <span className="bg-gradient-accent bg-clip-text text-transparent">эффективную рекламу?</span>
             </h2>
             
-            <p className="text-2xl text-text-secondary mb-12">
+            <p className="text-3xl text-text-secondary mb-16">
               Начните бесплатно с 50 кредитами или сразу получите доступ ко всем премиум-функциям
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16">
               <button
                 onClick={handleGetStarted}
-                className="btn-primary btn-lg text-xl px-12 py-6 shadow-2xl hover:shadow-accent-primary/50 transition-all"
+                className="glass-strong px-14 py-8 rounded-2xl hover:scale-105 transition-all duration-300 border-2 border-accent-primary shadow-glass-lg"
               >
-                <span>Начать бесплатно</span>
-                <span className="block text-sm opacity-80">50 кредитов в подарок</span>
+                <span className="text-2xl font-bold block mb-2">Начать бесплатно</span>
+                <span className="text-sm text-accent-primary">50 кредитов в подарок</span>
               </button>
               
               <button
                 onClick={() => router.push('/pricing')}
-                className="btn-secondary btn-lg text-xl px-12 py-6"
+                className="bg-gradient-accent text-white px-14 py-8 rounded-2xl hover:scale-105 transition-all duration-300 shadow-glass-lg"
               >
-                <span>Подписаться на Starter</span>
-                <span className="block text-sm opacity-80">2 990₽/мес + 1 500 кредитов</span>
+                <span className="text-2xl font-bold block mb-2">Подписаться на Starter</span>
+                <span className="text-sm opacity-90">2 990₽/мес + 1 500 кредитов</span>
               </button>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-8 text-sm text-text-muted">
-              <div className="flex items-center space-x-2">
-                <FaCheckCircle className="text-accent-primary" />
+            <div className="flex flex-wrap justify-center gap-12 text-lg">
+              <div className="glass-button px-6 py-3 rounded-full flex items-center space-x-3">
+                <FaCheckCircle className="text-accent-primary text-xl" />
                 <span>Без кредитной карты</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <FaCheckCircle className="text-accent-primary" />
+              <div className="glass-button px-6 py-3 rounded-full flex items-center space-x-3">
+                <FaCheckCircle className="text-accent-primary text-xl" />
                 <span>Отмена в любой момент</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <FaCheckCircle className="text-accent-primary" />
+              <div className="glass-button px-6 py-3 rounded-full flex items-center space-x-3">
+                <FaCheckCircle className="text-accent-primary text-xl" />
                 <span>Гарантия качества</span>
               </div>
             </div>
