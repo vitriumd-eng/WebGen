@@ -75,6 +75,19 @@ a {
   animation: pulse-slow 3s ease-in-out infinite;
 }
 
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
 /* Button styles */
 .btn {
   @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer;
@@ -99,6 +112,23 @@ a {
 
 .card-elevated {
   @apply bg-light-elevated border border-light-border rounded-xl p-6 shadow-soft-lg hover:shadow-gemini transition-all;
+}
+
+/* Glassmorphism styles */
+.glass {
+  @apply bg-white/40 backdrop-blur-xl border border-white/20 shadow-glass;
+}
+
+.glass-strong {
+  @apply bg-white/60 backdrop-blur-2xl border border-white/30 shadow-glass-lg;
+}
+
+.glass-card {
+  @apply bg-white/30 backdrop-blur-lg rounded-2xl border border-white/20 shadow-glass hover:bg-white/40 transition-all duration-300;
+}
+
+.glass-button {
+  @apply bg-white/20 backdrop-blur-md border border-white/30 hover:bg-white/30 transition-all duration-300;
 }
 
 /* Input styles */

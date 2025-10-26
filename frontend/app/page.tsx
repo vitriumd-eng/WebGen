@@ -19,56 +19,104 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* HERO SECTION - Блок 1: Ключевой анонс */}
-      <section className="relative overflow-hidden py-20 px-4 mt-16">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-accent-secondary/10"></div>
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      {/* HERO SECTION - Блок 1: Ключевой анонс с Glassmorphism */}
+      <section className="relative overflow-hidden min-h-screen flex items-center px-4 mt-16">
+        {/* Animated background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-50"></div>
         
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-accent-primary/20 text-accent-primary px-6 py-3 rounded-full mb-8 animate-pulse-slow">
-              <FaBolt className="text-xl" />
-              <span className="font-semibold text-lg">AI-анализ конкурентов по ссылке</span>
-            </div>
-            
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-accent bg-clip-text text-transparent">Fortar</span> — платформа, которая анализирует группу конкурента и выдает креатив максимально релевантный аудитории
-            </h1>
-            
-            <p className="text-xl text-text-secondary mb-10 max-w-3xl mx-auto">
-              Мгновенное создание нативной рекламы. Вставляешь ссылку — получаешь готовый, адаптированный комплект креативов.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-              <button
-                onClick={handleGetStarted}
-                className="btn-primary btn-lg flex items-center justify-center space-x-2 group text-lg px-8 py-4"
-              >
-                <span>Начать бесплатно (50 кредитов)</span>
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <Link href="/generate" className="btn-secondary btn-lg flex items-center justify-center text-lg px-8 py-4">
-                <FaRocket className="mr-2" />
-                Генерация
-              </Link>
-              <Link href="/pricing" className="btn-secondary btn-lg flex items-center justify-center text-lg px-8 py-4">
-                Посмотреть тарифы
-              </Link>
-            </div>
-            
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted">
-              <div className="flex items-center space-x-2">
-                <FaCheckCircle className="text-green-400" />
-                <span>Без кредитной карты</span>
+        {/* Large background shapes */}
+        <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-pink-400/30 to-orange-400/30 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+        
+        <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content with Glass Card */}
+            <div>
+              <div className="glass-strong rounded-3xl p-10 mb-8">
+                <div className="inline-flex items-center space-x-2 glass-button px-6 py-3 rounded-full mb-6">
+                  <FaBolt className="text-accent-primary" />
+                  <span className="font-semibold text-accent-primary">AI-анализ конкурентов</span>
+                </div>
+                
+                <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-text-primary">
+                  <span className="bg-gradient-accent bg-clip-text text-transparent">Fortar</span>
+                </h1>
+                
+                <p className="text-2xl font-semibold text-text-primary mb-4">
+                  Анализируй. Создавай. Запускай.
+                </p>
+                
+                <p className="text-lg text-text-secondary mb-8">
+                  Платформа, которая анализирует группу конкурента и выдает креатив максимально релевантный аудитории
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <button
+                    onClick={handleGetStarted}
+                    className="bg-gradient-accent text-white px-8 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center space-x-2 group hover:shadow-glass-lg transition-all"
+                  >
+                    <span>Начать бесплатно</span>
+                    <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <Link href="/generate" className="glass-button px-8 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center space-x-2">
+                    <FaRocket />
+                    <span>Генерация</span>
+                  </Link>
+                </div>
+                
+                <div className="flex flex-wrap gap-4 text-sm">
+                  <div className="glass-button px-4 py-2 rounded-full flex items-center space-x-2">
+                    <FaCheckCircle className="text-green-500" />
+                    <span>50 кредитов бесплатно</span>
+                  </div>
+                  <div className="glass-button px-4 py-2 rounded-full flex items-center space-x-2">
+                    <FaCheckCircle className="text-green-500" />
+                    <span>7 AI-движков</span>
+                  </div>
+                  <div className="glass-button px-4 py-2 rounded-full flex items-center space-x-2">
+                    <FaCheckCircle className="text-green-500" />
+                    <span>Топ-50 креативов</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <FaCheckCircle className="text-green-400" />
-                <span>7 AI-движков</span>
+            </div>
+
+            {/* Right: Large Product Image with Glass Effect */}
+            <div className="relative">
+              <div className="glass-card p-8 transform hover:scale-105 transition-all duration-500">
+                <div className="aspect-square bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 rounded-3xl flex items-center justify-center overflow-hidden relative">
+                  {/* Product showcase placeholder */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm"></div>
+                  <div className="relative z-10 text-center p-8">
+                    <FaImage className="text-8xl text-white/60 mb-4 mx-auto" />
+                    <p className="text-2xl font-bold text-white drop-shadow-lg">AI Креатив</p>
+                    <p className="text-white/80 mt-2">Анализ + Генерация</p>
+                  </div>
+                </div>
+                
+                {/* Glass stats overlay */}
+                <div className="mt-4 grid grid-cols-3 gap-4">
+                  <div className="glass-button p-4 rounded-xl text-center">
+                    <div className="text-2xl font-bold text-accent-primary">100₽</div>
+                    <div className="text-xs text-text-muted">AI-Scoring</div>
+                  </div>
+                  <div className="glass-button p-4 rounded-xl text-center">
+                    <div className="text-2xl font-bold text-accent-secondary">15 мин</div>
+                    <div className="text-xs text-text-muted">Готовность</div>
+                  </div>
+                  <div className="glass-button p-4 rounded-xl text-center">
+                    <div className="text-2xl font-bold text-accent-purple">Top-50</div>
+                    <div className="text-xs text-text-muted">Библиотека</div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <FaCheckCircle className="text-green-400" />
-                <span>Топ-50 креативов</span>
+              
+              {/* Floating elements */}
+              <div className="absolute -top-8 -right-8 glass-button p-6 rounded-2xl animate-bounce-slow">
+                <FaRocket className="text-3xl text-accent-primary" />
+              </div>
+              <div className="absolute -bottom-8 -left-8 glass-button p-6 rounded-2xl animate-pulse-slow">
+                <FaStar className="text-3xl text-accent-secondary" />
               </div>
             </div>
           </div>

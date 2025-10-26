@@ -41,6 +41,12 @@ module.exports = {
         'soft': '0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15)',
         'soft-lg': '0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15)',
         'gemini': '0 8px 16px 0 rgba(60, 64, 67, 0.1)',
+        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        'glass-lg': '0 8px 32px 0 rgba(31, 38, 135, 0.5)',
+      },
+      backdropBlur: {
+        xs: '2px',
+        '3xl': '64px',
       }
     },
   },
