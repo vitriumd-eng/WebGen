@@ -9,8 +9,8 @@ import { Toaster } from 'react-hot-toast'
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 
 export const metadata: Metadata = {
-  title: 'AI Creatives - Генератор креативов для таргетологов',
-  description: 'Создавайте профессиональные креативы для таргетированной рекламы с помощью AI',
+  title: 'Fortar - AI-платформа для анализа конкурентов и генерации нативных креативов',
+  description: 'Вставляете ссылку на группу конкурента — получаете готовые креативы, максимально релевантные его аудитории. AI-анализ + генерация за 15 минут.',
 }
 
 export default function RootLayout({

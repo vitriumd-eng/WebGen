@@ -12,12 +12,12 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-accent rounded-lg flex items-center justify-center">
-                <span className="text-xl">✨</span>
+                <span className="text-xl font-bold">F</span>
               </div>
-              <span className="text-lg font-bold">AI Creatives</span>
+              <span className="text-lg font-bold">Fortar</span>
             </div>
             <p className="text-text-secondary text-sm">
-              Платформа для генерации AI-креативов для таргетологов и маркетологов
+              AI-платформа для анализа конкурентов и генерации нативных креативов
             </p>
           </div>
 
@@ -58,13 +58,13 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-text-secondary text-sm mt-4">
-              support@aicreatives.ru
+              support@fortar.ru
             </p>
           </div>
         </div>
 
         <div className="border-t border-dark-border mt-8 pt-8 text-center text-text-secondary text-sm">
-          <p>© 2025 AI Creatives. Все права защищены.</p>
+          <p>© 2025 Fortar. Все права защищены.</p>
         </div>
       </div>
     </footer>

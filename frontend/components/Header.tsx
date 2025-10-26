@@ -26,10 +26,10 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center">
-              <span className="text-2xl">✨</span>
+              <span className="text-2xl font-bold">F</span>
             </div>
             <span className="text-xl font-bold bg-gradient-accent bg-clip-text text-transparent">
-              AI Creatives
+              Fortar
             </span>
           </Link>
 

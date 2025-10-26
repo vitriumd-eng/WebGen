@@ -17,9 +17,9 @@ from logging_config import logger
 limiter = Limiter(key_func=get_remote_address)
 
 app = FastAPI(
-    title="AI Creative Generator API",
-    description="SaaS Platform for AI-Generated Marketing Creatives",
-    version="1.0.0"
+    title="Fortar API",
+    description="AI Platform for Competitor Analysis and Native Creative Generation",
+    version="2.0.0"
 )
 
 # Add rate limiter to app state
@@ -36,7 +36,7 @@ app.add_middleware(
 )
 
 # Log application startup
-logger.info("AI Creative Generator API starting...")
+logger.info("Fortar API starting...")
 logger.info(f"FastAPI version: {app.version}")
 
 # Include routers
@@ -53,8 +53,8 @@ app.include_router(pricing_admin.router)
 @app.get("/")
 def root():
     return {
-        "message": "AI Creative Generator API",
-        "version": "1.0.0",
+        "message": "Fortar API - AI Platform for Creative Generation",
+        "version": "2.0.0",
         "docs": "/docs"
     }
 

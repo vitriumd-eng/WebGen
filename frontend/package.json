@@ -1,6 +1,6 @@
 {
-  "name": "ai-creative-generator-frontend",
-  "version": "1.0.0",
+  "name": "fortar-frontend",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3002",
