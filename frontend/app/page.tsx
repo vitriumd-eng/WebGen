@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* HERO SECTION - Блок 1: Ключевой анонс + Флагманский пакет */}
-      <section className="relative overflow-hidden py-20 px-4">
+      <section className="relative overflow-hidden py-16 px-4">
         {/* Animated background */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 via-transparent to-accent-secondary/10"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -34,11 +34,11 @@ export default function HomePage() {
                 <span className="font-semibold">AI-анализ конкурентов по ссылке</span>
               </div>
               
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-accent bg-clip-text text-transparent">Fortar</span> — платформа, которая анализирует группу конкурента и выдает креатив максимально релевантный аудитории
               </h1>
               
-              <p className="text-xl text-text-secondary mb-8">
+              <p className="text-lg text-text-secondary mb-8">
                 Мгновенное создание нативной рекламы. Вставляешь ссылку — получаешь готовый, адаптированный комплект креативов.
               </p>
               
@@ -143,13 +143,13 @@ export default function HomePage() {
       </section>
 
       {/* Блок 2: Проблема и Решение */}
-      <section className="py-20 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-dark-surface">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
               Хватит сливать бюджет: <span className="bg-gradient-accent bg-clip-text text-transparent">Узнайте, что сработает, до запуска</span>
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className="text-lg text-text-secondary">
               Почему традиционный дизайн и AI без аналитики проигрывают
             </p>
           </div>
@@ -189,13 +189,13 @@ export default function HomePage() {
       </section>
 
       {/* Блок 3: Как это работает (визуализация процесса) */}
-      <section className="py-20 px-4">
+      <section className="py-12 px-4">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
               Как работает <span className="bg-gradient-accent bg-clip-text text-transparent">AI-анализ по ссылке</span>
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className="text-lg text-text-secondary">
               3 простых шага до готового креатива
             </p>
           </div>
@@ -261,7 +261,7 @@ export default function HomePage() {
       </section>
 
       {/* Блок 4: AI-Скоринг CVR/ROAS */}
-      <section className="py-20 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-dark-surface">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -377,13 +377,13 @@ export default function HomePage() {
       </section>
 
       {/* Блок 5: Премиум-Форматы (AI Fusion) */}
-      <section className="py-20 px-4">
+      <section className="py-12 px-4">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
               Доступ к <span className="bg-gradient-accent bg-clip-text text-transparent">премиум-форматам</span>, которые поднимают CTR
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className="text-lg text-text-secondary">
               Векторные креативы, морфинг-видео и AI Fusion — всё в одной платформе
             </p>
           </div>
@@ -466,13 +466,13 @@ export default function HomePage() {
       </section>
 
       {/* Блок 6: ROI-Сравнение */}
-      <section className="py-20 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-dark-surface">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
               Сравните <span className="bg-gradient-accent bg-clip-text text-transparent">стоимость</span> с альтернативами
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className="text-lg text-text-secondary">
               Агентство vs. Дизайнер vs. Наш флагманский пакет
             </p>
           </div>
@@ -541,14 +541,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Блок 7: AI Hub — Модель Посредника */}
-      <section className="py-20 px-4">
+      {/* Блок 7: AI Hub */}
+      <section className="py-12 px-4">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
               <span className="bg-gradient-accent bg-clip-text text-transparent">AI Hub</span>: 7 движков в одном окне
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className="text-lg text-text-secondary">
               Платите только за то, что используете. Выбирайте лучший AI для каждой задачи.
             </p>
           </div>
@@ -573,35 +573,17 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-
-          <div className="mt-12 max-w-2xl mx-auto card-elevated p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Модель посредника: Прозрачность и гибкость</h3>
-            <p className="text-text-secondary mb-6">
-              Мы не накручиваем x10 на AI. Наша комиссия: 300-400% к себестоимости API. 
-              Вы платите справедливую цену и получаете доступ к лучшим движкам.
-            </p>
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div className="p-4 bg-dark-bg rounded-lg">
-                <div className="text-text-muted mb-1">Себестоимость DALL-E</div>
-                <div className="text-xl font-bold">20₽</div>
-              </div>
-              <div className="p-4 bg-dark-bg rounded-lg">
-                <div className="text-text-muted mb-1">Ваша цена</div>
-                <div className="text-xl font-bold text-accent-primary">100₽</div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Блок 8: Модель Оплаты */}
-      <section className="py-20 px-4 bg-dark-surface">
+      <section className="py-12 px-4 bg-dark-surface">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
               Гибридная система: <span className="bg-gradient-accent bg-clip-text text-transparent">Подписка + Кредиты</span>
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className="text-lg text-text-secondary">
               Платите за доступ к интеллекту, а за креативы — только когда используете
             </p>
           </div>
@@ -685,13 +667,13 @@ export default function HomePage() {
       </section>
 
       {/* Блок 9: Библиотека Топ-50 */}
-      <section className="py-20 px-4">
+      <section className="py-12 px-4">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
               <span className="bg-gradient-accent bg-clip-text text-transparent">Библиотека Топ-50 креативов</span>
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className="text-lg text-text-secondary">
               Изучайте лучшие гипотезы конкурентов до того, как они их поменяли
             </p>
           </div>
@@ -739,7 +721,7 @@ export default function HomePage() {
       </section>
 
       {/* Блок 10: Финальный CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-accent-primary/20 via-dark-surface to-accent-secondary/20">
+      <section className="py-16 px-4 bg-gradient-to-br from-accent-primary/20 via-dark-surface to-accent-secondary/20">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-accent-primary text-dark-bg px-6 py-3 rounded-full mb-8 text-lg font-bold animate-bounce-slow">
