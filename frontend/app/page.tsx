@@ -25,8 +25,8 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 via-transparent to-accent-secondary/10"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
-        <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-5xl mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left: Main Announcement */}
             <div>
               <div className="inline-flex items-center space-x-2 bg-accent-primary/20 text-accent-primary px-4 py-2 rounded-full mb-6 animate-pulse-slow">
@@ -34,11 +34,11 @@ export default function HomePage() {
                 <span className="font-semibold">AI-анализ конкурентов по ссылке</span>
               </div>
               
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
                 <span className="bg-gradient-accent bg-clip-text text-transparent">Fortar</span> — платформа, которая анализирует группу конкурента и выдает креатив максимально релевантный аудитории
               </h1>
               
-              <p className="text-lg text-text-secondary mb-8">
+              <p className="text-base text-text-secondary mb-6">
                 Мгновенное создание нативной рекламы. Вставляешь ссылку — получаешь готовый, адаптированный комплект креативов.
               </p>
               
@@ -144,8 +144,8 @@ export default function HomePage() {
 
       {/* Блок 2: Проблема и Решение */}
       <section className="py-12 px-4 bg-dark-surface">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               Хватит сливать бюджет: <span className="bg-gradient-accent bg-clip-text text-transparent">Узнайте, что сработает, до запуска</span>
             </h2>
@@ -190,8 +190,8 @@ export default function HomePage() {
 
       {/* Блок 3: Как это работает (визуализация процесса) */}
       <section className="py-12 px-4">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               Как работает <span className="bg-gradient-accent bg-clip-text text-transparent">AI-анализ по ссылке</span>
             </h2>
@@ -200,7 +200,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {/* Шаг 1 */}
             <div className="relative">
               <div className="card p-8 text-center h-full">
@@ -262,7 +262,7 @@ export default function HomePage() {
 
       {/* Блок 4: AI-Скоринг CVR/ROAS */}
       <section className="py-12 px-4 bg-dark-surface">
-        <div className="container-custom">
+        <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center space-x-2 bg-accent-secondary/20 text-accent-secondary px-4 py-2 rounded-full mb-6">
@@ -378,8 +378,8 @@ export default function HomePage() {
 
       {/* Блок 5: Премиум-Форматы (AI Fusion) */}
       <section className="py-12 px-4">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               Доступ к <span className="bg-gradient-accent bg-clip-text text-transparent">премиум-форматам</span>, которые поднимают CTR
             </h2>
@@ -467,8 +467,8 @@ export default function HomePage() {
 
       {/* Блок 6: ROI-Сравнение */}
       <section className="py-12 px-4 bg-dark-surface">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               Сравните <span className="bg-gradient-accent bg-clip-text text-transparent">стоимость</span> с альтернативами
             </h2>
@@ -477,7 +477,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto overflow-x-auto">
+          <div className="max-w-4xl mx-auto overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-dark-border">
@@ -543,8 +543,8 @@ export default function HomePage() {
 
       {/* Блок 7: AI Hub */}
       <section className="py-12 px-4">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               <span className="bg-gradient-accent bg-clip-text text-transparent">AI Hub</span>: 7 движков в одном окне
             </h2>
@@ -578,8 +578,8 @@ export default function HomePage() {
 
       {/* Блок 8: Модель Оплаты */}
       <section className="py-12 px-4 bg-dark-surface">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               Гибридная система: <span className="bg-gradient-accent bg-clip-text text-transparent">Подписка + Кредиты</span>
             </h2>
@@ -668,8 +668,8 @@ export default function HomePage() {
 
       {/* Блок 9: Библиотека Топ-50 */}
       <section className="py-12 px-4">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               <span className="bg-gradient-accent bg-clip-text text-transparent">Библиотека Топ-50 креативов</span>
             </h2>
@@ -722,8 +722,8 @@ export default function HomePage() {
 
       {/* Блок 10: Финальный CTA */}
       <section className="py-16 px-4 bg-gradient-to-br from-accent-primary/20 via-dark-surface to-accent-secondary/20">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-accent-primary text-dark-bg px-6 py-3 rounded-full mb-8 text-lg font-bold animate-bounce-slow">
               <FaFire />
               <span>Специальное предложение</span>
