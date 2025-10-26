@@ -123,305 +123,363 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Блок 2: Проблема и Решение */}
-      <section className="py-12 px-4 bg-light-surface">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Хватит сливать бюджет: <span className="bg-gradient-accent bg-clip-text text-transparent">Узнайте, что сработает, до запуска</span>
+      {/* Блок 2: Проблема и Решение с Glass Cards */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-yellow-50 to-blue-50"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              Хватит <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">сливать бюджет</span>
             </h2>
-            <p className="text-lg text-text-secondary">
-              Почему традиционный дизайн и AI без аналитики проигрывают
+            <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+              Узнайте, что сработает, ДО запуска рекламной кампании
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {/* Проблема 1 */}
-            <div className="card p-8 text-center border-2 border-red-500/20">
-              <div className="text-6xl mb-4">😫</div>
-              <h3 className="text-xl font-bold mb-3 text-red-400">Дизайнеры без данных</h3>
-              <p className="text-text-secondary">
+            <div className="glass-card p-8 text-center hover:scale-105 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-400 to-orange-400 rounded-3xl flex items-center justify-center text-4xl mb-6 mx-auto">
+                😫
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-text-primary">Дизайнеры без данных</h3>
+              <p className="text-text-secondary mb-6">
                 Создают "красиво", но не знают вашу аудиторию. Результат: креатив не заходит, бюджет слит.
               </p>
-              <div className="mt-4 text-red-400 font-bold">20 000₽ и 5 дней впустую</div>
+              <div className="glass-button px-4 py-2 rounded-full inline-block">
+                <span className="text-red-500 font-bold">20 000₽ впустую</span>
+              </div>
             </div>
 
             {/* Проблема 2 */}
-            <div className="card p-8 text-center border-2 border-yellow-500/20">
-              <div className="text-6xl mb-4">🤖</div>
-              <h3 className="text-xl font-bold mb-3 text-yellow-400">AI без аналитики</h3>
-              <p className="text-text-secondary">
+            <div className="glass-card p-8 text-center hover:scale-105 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-3xl flex items-center justify-center text-4xl mb-6 mx-auto">
+                🤖
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-text-primary">AI без аналитики</h3>
+              <p className="text-text-secondary mb-6">
                 ChatGPT и DALL-E генерируют "по промпту", но не анализируют конкурентов и аудиторию.
               </p>
-              <div className="mt-4 text-yellow-400 font-bold">Красиво, но не эффективно</div>
+              <div className="glass-button px-4 py-2 rounded-full inline-block">
+                <span className="text-yellow-600 font-bold">Красиво, но не работает</span>
+              </div>
             </div>
 
             {/* Решение */}
-            <div className="card-elevated p-8 text-center border-2 border-accent-primary">
-              <div className="text-6xl mb-4">🚀</div>
-              <h3 className="text-xl font-bold mb-3 text-accent-primary">Наше решение</h3>
-              <p className="text-text-secondary">
+            <div className="glass-strong p-8 text-center hover:scale-105 transition-all duration-300 border-2 border-accent-primary/30">
+              <div className="w-20 h-20 bg-gradient-accent rounded-3xl flex items-center justify-center text-4xl mb-6 mx-auto">
+                🚀
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-accent-primary">Наше решение</h3>
+              <p className="text-text-secondary mb-6">
                 AI анализирует конкурентов, их аудиторию и создает креатив, который УЖЕ работает у них.
               </p>
-              <div className="mt-4 text-accent-primary font-bold">4 990₽ и 15 минут</div>
+              <div className="bg-gradient-accent px-6 py-3 rounded-full inline-block">
+                <span className="text-white font-bold">4 990₽ за 15 минут</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Флагманский пакет: Максимум Тестирования */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="relative">
-            <div className="absolute -inset-6 bg-gradient-accent rounded-3xl opacity-20 blur-2xl animate-pulse-slow"></div>
-            <div className="relative card-elevated border-2 border-accent-primary p-10">
-              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-accent-primary text-light-bg px-6 py-3 rounded-full font-bold text-lg shadow-lg animate-bounce-slow">
-                🔥 ФЛАГМАН
-              </div>
-              
-              <div className="text-center mb-8 mt-4">
-                <h2 className="text-4xl font-bold mb-3">Максимум Тестирования</h2>
-                <p className="text-xl text-text-secondary">Комплексный AI-Запуск за один клик</p>
-              </div>
+      {/* Флагманский пакет: Максимум Тестирования с Glassmorphism */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"></div>
+        
+        {/* Animated shapes */}
+        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 right-20 w-72 h-72 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="glass-strong rounded-3xl p-12 relative overflow-hidden">
+            {/* Floating badge */}
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-accent px-8 py-3 rounded-full font-bold text-lg shadow-glass-lg z-20">
+              <span className="text-white">🔥 ФЛАГМАН</span>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
+              {/* Left: Package details */}
+              <div>
+                <h2 className="text-5xl font-bold mb-4 text-text-primary">
+                  Максимум Тестирования
+                </h2>
+                <p className="text-2xl text-text-secondary mb-8">
+                  Комплексный AI-Запуск за один клик
+                </p>
 
-              <div className="mb-8 flex items-center justify-center py-6">
-                <div className="text-center">
-                  <div className="flex items-center justify-center space-x-4 mb-3">
-                    <FaImage className="text-4xl text-accent-primary" />
-                    <FaArrowRight className="text-3xl text-accent-secondary" />
-                    <FaRocket className="text-4xl text-accent-secondary animate-pulse" />
+                <div className="flex items-center space-x-4 mb-8 glass-button p-6 rounded-2xl">
+                  <FaImage className="text-5xl text-accent-primary" />
+                  <FaArrowRight className="text-3xl text-accent-secondary" />
+                  <FaRocket className="text-5xl text-accent-secondary animate-pulse" />
+                </div>
+
+                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                      <span className="text-base">5 статичных изображений</span>
+                    </div>
+                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                      <span className="text-base">2 анимации (GIF/MP4)</span>
+                    </div>
+                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                      <span className="text-base">3 AI-скоринга (CVR)</span>
+                    </div>
+                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                      <span className="text-base">Анализ аудитории</span>
+                    </div>
+                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                      <span className="text-base">Адаптация брендбука</span>
+                    </div>
+                    <div className="glass-button p-4 rounded-xl flex items-start space-x-3">
+                      <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-2xl" />
+                      <span className="text-base">Готовность: 15 минут</span>
+                    </div>
                   </div>
-                  <p className="text-base text-text-muted">Вставить ссылку → Полный комплект креативов</p>
+                </div>
+
+                <div className="glass-button p-8 rounded-2xl text-center">
+                  <div className="flex items-baseline justify-center space-x-3 mb-3">
+                    <span className="text-6xl font-bold bg-gradient-accent bg-clip-text text-transparent">4 990</span>
+                    <span className="text-3xl text-text-secondary">₽</span>
+                  </div>
+                  <p className="text-text-muted mb-6">Вместо ~20 000₽ у дизайнера</p>
+                  
+                  <button
+                    onClick={() => router.push('/pricing')}
+                    className="bg-gradient-accent text-white px-12 py-5 rounded-2xl text-xl font-bold hover:scale-105 transition-all duration-300 shadow-glass-lg w-full"
+                  >
+                    Заказать пакет
+                  </button>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
-                  <span className="text-base">5 статичных изображений высокого качества</span>
+              {/* Right: Visual showcase */}
+              <div className="glass-card p-8 rounded-3xl hover:scale-105 transition-all duration-500">
+                <div className="aspect-square bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 rounded-3xl mb-6 relative overflow-hidden">
+                  <div className="absolute inset-0 backdrop-blur-sm bg-white/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-7xl mb-4">📊</div>
+                      <p className="text-2xl font-bold text-white">AI-Анализ</p>
+                      <p className="text-lg text-white/80">Полный комплект</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
-                  <span className="text-base">2 анимированных креатива (GIF/MP4)</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
-                  <span className="text-base">3 AI-скоринга креативов (прогноз CVR)</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
-                  <span className="text-base">Анализ целевой аудитории по ссылке</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
-                  <span className="text-base">Адаптация под брендбук компании</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="text-accent-primary mt-1 flex-shrink-0 text-xl" />
-                  <span className="text-base">Готовность: 15 минут</span>
+                
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="glass-button p-3 rounded-xl text-center">
+                    <div className="text-3xl mb-1">🎨</div>
+                    <p className="text-xs text-text-muted">Дизайн</p>
+                  </div>
+                  <div className="glass-button p-3 rounded-xl text-center">
+                    <div className="text-3xl mb-1">📹</div>
+                    <p className="text-xs text-text-muted">Видео</p>
+                  </div>
+                  <div className="glass-button p-3 rounded-xl text-center">
+                    <div className="text-3xl mb-1">⚡</div>
+                    <p className="text-xs text-text-muted">Быстро</p>
+                  </div>
                 </div>
               </div>
-
-              <div className="border-t border-light-border pt-8 mb-8">
-                <div className="flex items-baseline justify-center space-x-3 mb-2">
-                  <span className="text-6xl font-bold bg-gradient-accent bg-clip-text text-transparent">4 990</span>
-                  <span className="text-3xl text-text-secondary">₽</span>
-                </div>
-                <p className="text-center text-lg text-text-muted">Вместо ~20 000₽ у дизайнера</p>
-              </div>
-
-              <button
-                onClick={() => router.push('/pricing')}
-                className="btn-primary w-full btn-lg text-xl py-5"
-              >
-                Заказать пакет
-              </button>
-
-              <p className="text-center text-sm text-text-muted mt-6">
-                Готовность: 15 минут. Гарантия качества.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Блок 3: Как это работает (визуализация процесса) */}
-      <section className="py-12 px-4 bg-light-surface">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Как работает <span className="bg-gradient-accent bg-clip-text text-transparent">AI-анализ по ссылке</span>
+      {/* Блок 3: Как это работает с Glassmorphism Timeline */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-green-50"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              Как работает <span className="bg-gradient-accent bg-clip-text text-transparent">AI-анализ</span>
             </h2>
-            <p className="text-lg text-text-secondary">
+            <p className="text-xl text-text-secondary">
               3 простых шага до готового креатива
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {/* Шаг 1 */}
-            <div className="relative">
-              <div className="card p-8 text-center h-full">
-                <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Шаг 1 */}
+              <div className="glass-card p-8 text-center hover:scale-105 transition-all duration-300">
+                <div className="w-24 h-24 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-white shadow-glass-lg">
                   1
                 </div>
-                <h3 className="text-xl font-bold mb-4">Вставьте ссылку</h3>
-                <p className="text-text-secondary mb-4">
+                <h3 className="text-2xl font-bold mb-4 text-text-primary">Вставьте ссылку</h3>
+                <p className="text-text-secondary mb-6">
                   URL группы конкурента, сообщества или страницы продукта
                 </p>
-                <div className="bg-light-surface rounded-lg p-4 text-sm text-accent-primary font-mono">
+                <div className="glass-button p-4 rounded-xl text-accent-primary font-mono text-sm">
                   vk.com/competitor_group
                 </div>
+                
+                {/* Arrow for desktop */}
+                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 translate-x-full">
+                  <div className="glass-button p-3 rounded-full">
+                    <FaArrowRight className="text-3xl text-accent-secondary" />
+                  </div>
+                </div>
               </div>
-              <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 translate-x-full">
-                <FaArrowRight className="text-3xl text-accent-secondary" />
-              </div>
-            </div>
 
-            {/* Шаг 2 */}
-            <div className="relative">
-              <div className="card p-8 text-center h-full">
-                <div className="w-16 h-16 bg-gradient-purple rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              {/* Шаг 2 */}
+              <div className="glass-card p-8 text-center hover:scale-105 transition-all duration-300">
+                <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-white shadow-glass-lg">
                   2
                 </div>
-                <h3 className="text-xl font-bold mb-4">AI анализирует</h3>
-                <p className="text-text-secondary mb-4">
+                <h3 className="text-2xl font-bold mb-4 text-text-primary">AI анализирует</h3>
+                <p className="text-text-secondary mb-6">
                   Извлекаем данные об аудитории, интересах, активности и контенте
                 </p>
-                <div className="flex justify-center items-center space-x-2">
-                  <div className="w-3 h-3 bg-accent-primary rounded-full animate-ping"></div>
-                  <div className="w-3 h-3 bg-accent-secondary rounded-full animate-ping animation-delay-200"></div>
-                  <div className="w-3 h-3 bg-accent-primary rounded-full animate-ping animation-delay-400"></div>
+                <div className="flex justify-center items-center space-x-3 mt-6">
+                  <div className="w-4 h-4 bg-accent-primary rounded-full animate-ping"></div>
+                  <div className="w-4 h-4 bg-accent-secondary rounded-full animate-ping" style={{animationDelay: '0.2s'}}></div>
+                  <div className="w-4 h-4 bg-accent-primary rounded-full animate-ping" style={{animationDelay: '0.4s'}}></div>
+                </div>
+                
+                {/* Arrow for desktop */}
+                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 translate-x-full">
+                  <div className="glass-button p-3 rounded-full">
+                    <FaArrowRight className="text-3xl text-accent-secondary" />
+                  </div>
                 </div>
               </div>
-              <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 translate-x-full">
-                <FaArrowRight className="text-3xl text-accent-secondary" />
-              </div>
-            </div>
 
-            {/* Шаг 3 */}
-            <div className="card-elevated p-8 text-center h-full">
-              <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold animate-pulse">
-                3
-              </div>
-              <h3 className="text-xl font-bold mb-4">Получите комплект</h3>
-              <p className="text-text-secondary mb-4">
-                Готовые креативы, адаптированные под аудиторию конкурента
-              </p>
-              <div className="flex justify-center space-x-2">
-                <div className="w-12 h-12 bg-accent-primary/20 rounded-lg"></div>
-                <div className="w-12 h-12 bg-accent-secondary/20 rounded-lg"></div>
-                <div className="w-12 h-12 bg-accent-primary/20 rounded-lg"></div>
+              {/* Шаг 3 */}
+              <div className="glass-strong p-8 text-center hover:scale-105 transition-all duration-300 border-2 border-accent-secondary/30">
+                <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-white shadow-glass-lg animate-pulse">
+                  3
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-accent-secondary">Получите комплект</h3>
+                <p className="text-text-secondary mb-6">
+                  Готовые креативы, адаптированные под аудиторию конкурента
+                </p>
+                <div className="flex justify-center space-x-3 mt-6">
+                  <div className="w-16 h-16 glass-button rounded-2xl flex items-center justify-center text-2xl">🎨</div>
+                  <div className="w-16 h-16 glass-button rounded-2xl flex items-center justify-center text-2xl">📹</div>
+                  <div className="w-16 h-16 glass-button rounded-2xl flex items-center justify-center text-2xl">✨</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Блок 4: AI-Скоринг CVR/ROAS */}
-      <section className="py-12 px-4 bg-light-surface">
-        <div className="max-w-5xl mx-auto px-4">
+      {/* Блок 4: AI-Скоринг CVR/ROAS с Interactive Glass Card */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-teal-50 to-blue-50"></div>
+        
+        <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-green-400/20 to-teal-400/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center space-x-2 bg-accent-secondary/20 text-accent-secondary px-4 py-2 rounded-full mb-6">
-                <FaShieldAlt />
-                <span className="font-semibold">Функция снижения риска</span>
+              <div className="glass-button inline-flex items-center space-x-2 px-6 py-3 rounded-full mb-6">
+                <FaShieldAlt className="text-accent-secondary" />
+                <span className="font-semibold text-accent-secondary">Снижение риска</span>
               </div>
               
-              <h2 className="text-4xl font-bold mb-6">
-                <span className="bg-gradient-accent bg-clip-text text-transparent">AI-Скоринг CVR/ROAS</span>: Как за 100₽ узнать, сработает ли креатив
+              <h2 className="text-5xl font-bold mb-6">
+                <span className="bg-gradient-accent bg-clip-text text-transparent">AI-Скоринг</span> CVR/ROAS
               </h2>
               
-              <p className="text-xl text-text-secondary mb-8">
-                Зачем тратить 10 000₽ на тестирование, если можно получить прогноз конверсии за 100₽?
+              <p className="text-2xl text-text-secondary mb-10">
+                Узнайте, сработает ли креатив <span className="text-accent-primary font-bold">за 100₽</span> вместо 10 000₽ на тесты
               </p>
 
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaChartLine className="text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-2">Прогноз конверсии</h4>
-                    <p className="text-text-secondary">
-                      AI анализирует креатив и выдает балл 70-95/100 с объяснением
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-purple rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaCheckCircle className="text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-2">Рекомендации по улучшению</h4>
-                    <p className="text-text-secondary">
-                      2-3 конкретных совета, как поднять CTR и CVR
-                    </p>
+              <div className="space-y-6 mb-10">
+                <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-16 h-16 bg-gradient-accent rounded-2xl flex items-center justify-center flex-shrink-0 text-white">
+                      <FaChartLine className="text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-2">Прогноз конверсии</h4>
+                      <p className="text-text-secondary">
+                        AI анализирует креатив и выдает балл 70-95/100 с объяснением
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaBolt className="text-xl" />
+                <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0 text-white">
+                      <FaCheckCircle className="text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-2">Рекомендации</h4>
+                      <p className="text-text-secondary">
+                        2-3 конкретных совета, как поднять CTR и CVR
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold mb-2">Мгновенный результат</h4>
-                    <p className="text-text-secondary">
-                      Анализ занимает 10 секунд вместо недель тестирования
-                    </p>
+                </div>
+
+                <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 text-white">
+                      <FaBolt className="text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-2">За 10 секунд</h4>
+                      <p className="text-text-secondary">
+                        Вместо недель тестирования
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-light-bg rounded-xl border border-accent-primary/30">
-                <div className="flex items-center justify-center">
-                  <span className="text-text-secondary mr-4">Стоимость AI-скоринга:</span>
-                  <span className="text-3xl font-bold text-accent-primary">100₽</span>
-                </div>
+              <div className="glass-strong p-8 rounded-2xl text-center">
+                <p className="text-text-secondary mb-3">Стоимость AI-скоринга:</p>
+                <span className="text-6xl font-bold bg-gradient-accent bg-clip-text text-transparent">100₽</span>
               </div>
             </div>
 
-            {/* Visualization: Scoring Graph */}
-            <div className="relative">
-              <div className="card-elevated p-8">
-                <h4 className="text-center font-bold mb-6">Пример AI-скоринга</h4>
-                
-                {/* Score Meter */}
-                <div className="mb-8">
-                  <div className="flex justify-between items-baseline mb-2">
-                    <span className="text-sm text-text-secondary">CVR Score</span>
-                    <span className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">87/100</span>
+            {/* Visualization: Interactive Scoring Dashboard */}
+            <div className="glass-strong p-10 rounded-3xl">
+              <h4 className="text-center font-bold text-2xl mb-8">Пример AI-скоринга</h4>
+              
+              {/* Score Meter */}
+              <div className="mb-10">
+                <div className="flex justify-between items-baseline mb-4">
+                  <span className="text-lg text-text-secondary">CVR Score</span>
+                  <span className="text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent">87/100</span>
+                </div>
+                <div className="h-6 glass-button rounded-full overflow-hidden relative">
+                  <div className="h-full bg-gradient-accent rounded-full animate-pulse" style={{width: '87%'}}></div>
+                </div>
+              </div>
+
+              {/* Recommendations Cards */}
+              <div className="space-y-4">
+                <div className="glass-button p-5 rounded-xl">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <FaCheckCircle className="text-green-500 text-xl" />
+                    <span className="font-bold">Сильные стороны</span>
                   </div>
-                  <div className="h-4 bg-light-bg rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-accent" style={{width: '87%'}}></div>
-                  </div>
+                  <p className="text-sm text-text-secondary pl-8">Яркий контраст, четкий CTA, эмоциональная фотография</p>
                 </div>
 
-                {/* Recommendations */}
-                <div className="space-y-3">
-                  <div className="p-4 bg-light-bg rounded-lg">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <FaCheckCircle className="text-green-400" />
-                      <span className="font-semibold text-sm">Сильные стороны</span>
-                    </div>
-                    <p className="text-xs text-text-secondary">Яркий контраст, четкий CTA, эмоциональная фотография</p>
+                <div className="glass-button p-5 rounded-xl">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <FaArrowRight className="text-yellow-500 text-xl" />
+                    <span className="font-bold">Рекомендации</span>
                   </div>
+                  <p className="text-sm text-text-secondary pl-8">Добавить социальное доказательство, усилить оффер</p>
+                </div>
 
-                  <div className="p-4 bg-light-bg rounded-lg">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <FaArrowRight className="text-yellow-400" />
-                      <span className="font-semibold text-sm">Рекомендации</span>
-                    </div>
-                    <p className="text-xs text-text-secondary">Добавить социальное доказательство, усилить оффер</p>
+                <div className="glass-button p-5 rounded-xl">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <FaChartLine className="text-accent-primary text-xl" />
+                    <span className="font-bold">Прогноз</span>
                   </div>
-
-                  <div className="p-4 bg-light-bg rounded-lg">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <FaChartLine className="text-accent-primary" />
-                      <span className="font-semibold text-sm">Прогноз</span>
-                    </div>
-                    <p className="text-xs text-text-secondary">CTR: 2.1-2.5% | CVR: 3.8-4.2% | ROAS: 4.2x</p>
-                  </div>
+                  <p className="text-sm text-text-secondary pl-8">CTR: 2.1-2.5% | CVR: 3.8-4.2% | ROAS: 4.2x</p>
                 </div>
               </div>
             </div>
